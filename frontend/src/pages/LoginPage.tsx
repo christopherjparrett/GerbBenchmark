@@ -9,6 +9,9 @@ const LoginPage = () =>
         <PageTitle />
         <Login />
       </div>
+      <div>
+        <button onClick={() => goTo('SignUp')}>Create an Account</button>
+      </div>
     );
 };
 
