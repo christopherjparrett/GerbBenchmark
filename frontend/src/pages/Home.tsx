@@ -19,8 +19,14 @@ const Home: React.FC = () => {
         <img src={ColorPNG} alt="Colors Button Logo" className="ButtonImage"></img>
         <div className='ButtonText'>Go to Color Test</div>
       </button>
-      <button onClick={() => goTo('Typing')}>Go to Typing Test</button>
-      <button onClick={() => goTo('Reaction')}>Go to Reaction Test</button>
+      <button className = "HomeScreenButton" onClick={() => goTo('Typing')}>
+        <img src={ColorPNG} alt="Typing Button Logo" className="ButtonImage"></img>
+        <div className='ButtonText'>Go to Typing Test</div>
+      </button>
+      <button className = "HomeScreenButton" onClick={() => goTo('Reaction')}>
+        <img src={ColorPNG} alt="Reaction Button Logo" className="ButtonImage"></img>
+        <div className='ButtonText'>Go to Reaction Test</div>
+      </button>
     </div>
   );
 };
