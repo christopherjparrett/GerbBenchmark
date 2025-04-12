@@ -11,6 +11,8 @@
 
 .Overlord {
     height: 100vh;
+    background-image: url(../assets/Gerbster.png);
+    background-size: 100% 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
