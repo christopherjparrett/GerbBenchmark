@@ -40,7 +40,7 @@ function Login()
                 localStorage.setItem('user_data', JSON.stringify(user));
   
                 setMessage('');
-                window.location.href = '/cards';
+                window.location.href = '/Home';
             }
         }
         catch(error:any)
