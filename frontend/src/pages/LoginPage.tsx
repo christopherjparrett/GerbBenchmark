@@ -9,9 +9,6 @@ const LoginPage: React.FC = () => {
         navigate(`/${inputs}`);
     };
 
-const LoginPage = () =>
-{
-
     return(
       <div>
         <PageTitle />
