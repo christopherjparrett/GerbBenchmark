@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 function Login() {
     const [message, setMessage] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
     const [loginPassword, setPassword] = React.useState('');
+    const [userName, setUserName] = React.useState('');
 
     function handleSetLoginName(e: any): void {
         setLoginName(e.target.value);
@@ -12,21 +13,24 @@ function Login() {
         setPassword(e.target.value);
     }
 
+    function handleSetUserName(e: any): void {
+        setUserName(e.target.value);
+    }
 
-    async function doLogin(event: any): Promise<void> {
+    async function doRegister(event: any): Promise<void> {
         event.preventDefault();
 
-        var obj = { login: loginName, password: loginPassword };
+        var obj = { login: loginName, password: loginPassword, name: userName };
         var js = JSON.stringify(obj);
 
         try {
-            const response = await fetch('https://card.christopherjparrett.xyz/api/login',
+            const response = await fetch('https://card.christopherjparrett.xyz/api/register',
                 { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } });
 
             var res = JSON.parse(await response.text());
 
             if (res.id == null) {
-                setMessage('User/Password combination incorrect');
+                setMessage(res.error);
             }
             else {
                 var user = { name: res.Name, id: res.id }

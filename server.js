@@ -53,7 +53,7 @@ app.post('/api/login', async (req, res, next) => {
 // outgoing: id, firstName, lastName, error
 app.post('/api/register', async (req, res, next) => {
     var error = '';
-    var newId = -1;
+    var newId;
 
     var score = -1;
 
@@ -70,11 +70,11 @@ app.post('/api/register', async (req, res, next) => {
         error = "User already exist!";
     }
     else {
-        newId = 0;
         const result = await db.collection('Users').insertOne({
             Login: login, Password: password,
-            Name: name, ColorScore: score, ReactionScore: score, TypingScore: score, UserId: newId
+            Name: name, ColorScore: score, ReactionScore: score, TypingScore: score
         });
+        newId = result._id;
     }
 
     var ret =
