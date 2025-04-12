@@ -1,6 +1,7 @@
 import PageTitle from '../components/PageTitle.tsx';
 import Login from '../components/Login.tsx';
 import { useNavigate } from 'react-router-dom';
+import '../Styles/Logup.css';
 
 const LoginPage: React.FC = () => {
     const navigate = useNavigate();
