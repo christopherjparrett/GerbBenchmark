@@ -10,6 +10,7 @@ const LoginPage = () =>
         <Login />
           <button className = "SignUpButton" onClick={() => goTo('SignUp')}>
         <div className='ButtonText'>Create an Account</div>
+              </button>
       </div>
     
     );
