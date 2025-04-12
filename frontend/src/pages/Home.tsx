@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../Styles/Home.css';
 import ColorPNG from '../assets/ColorsPNG.png'
-import GerbPNG from '../assets/GerbPNG.png'
+import GerbPNG from '../assets/Gerbster.png'
 const Home: React.FC = () => {
     const navigate = useNavigate();
 
