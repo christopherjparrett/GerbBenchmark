@@ -96,7 +96,6 @@ app.post('/api/deleteUser', async (req, res, next) => {
     var error = '';
     var doBool = true;
 
-    var oldId;
     var objId;
     var isDeleted = false;
 
@@ -135,5 +134,45 @@ app.post('/api/deleteUser', async (req, res, next) => {
     }
     res.status(200).json(ret);
 });
+
+app.post('/api/colorScore', async (req, res, next) =>{
+
+    var error = '';
+    var score;
+    const { _id: ID, ColorScore: score } = req.body;
+
+    var objId;
+    var doBool = true;
+
+    if (ID != null)
+        objId = new ObjectId(ID);
+
+    const db = client.db();
+
+    if (!objId || !score) {
+        error = 'Not enough information present to update';
+        doBool = false;
+    }
+
+    const user = await db.collection('Users').find({ _id: objId }).toArray();
+
+    if (user.length <= 0) {
+        doBool = false;
+        error = 'Could not find the user';
+    }
+
+    if (doBool) {
+        await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: score } });
+        error = 'Successfully updated the score';
+    }
+
+    var ret = {
+        id: objId,
+        error: error,
+        score: score
+    }
+    res.status(200).json(ret);  
+});
+
 
 app.listen(5000);
