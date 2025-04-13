@@ -74,7 +74,8 @@ app.post('/api/register', async (req, res, next) => {
             Login: login, Password: password,
             Name: name, ColorScore: score, ReactionScore: score, TypingScore: score
         });
-        newId = result._id;
+        const userForId = await db.collection('Users').find({ Login: login, Password: password }).toArray();
+        newId = userForId[0]._id;
     }
 
     var ret =
