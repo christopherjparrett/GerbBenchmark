@@ -96,19 +96,21 @@ app.post('/api/deleteUser', async (req, res, next) => {
     var doBool = true;
 
     var oldId;
+    const objId
 
     const db = client.db();
 
     const { _id: ID } = req.body;
 
+    if (ID != null)
+        objId = new ObjectId(ID);
 
-
-    if (!ID) {
+    if (!objId) {
         error = 'Not enough information present to delete';
         doBool = false;
     }
     else {
-        const user = await db.collection('Users').find({ _id: ID }).toArray();
+        const user = await db.collection('Users').find({ _id: objId }).toArray();
         if (user.length <= 0) {
             error = 'User could not be found!';
             doBool = false;
@@ -119,12 +121,12 @@ app.post('/api/deleteUser', async (req, res, next) => {
     }
 
     if (doBool) {
-        await db.collection('Users').deleteOne({ _id: ID });
+        await db.collection('Users').deleteOne({ _id: objId });
         error = 'deleted the user';
     }
 
     var ret = {
-        id: oldId,
+        id: objId,
         error: error
     }
     res.status(200).json(ret);
