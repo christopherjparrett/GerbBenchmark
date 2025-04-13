@@ -67,6 +67,7 @@ app.post('/api/register', async (req, res, next) => {
             id: newId
         }
         res.status(200).json(ret);
+        res.end();
     }
 
     const db = client.db();
