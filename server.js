@@ -57,17 +57,13 @@ app.post('/api/register', async (req, res, next) => {
 
     var score = -1;
 
+    var doBool = true;
+
     const { login, password, name } = req.body;
 
     if (!login || !password || !name) {
         error = 'All fields are required';
-        var ret =
-        {
-            error: error,
-            id: newId
-        }
-        res.status(200).json(ret);
-        res.end();
+        doBool = false;
     }
 
     const db = client.db();
@@ -76,7 +72,7 @@ app.post('/api/register', async (req, res, next) => {
     if (user.length > 0) {
         error = "User already exist!";
     }
-    else {
+    else if (doBool) {
         const result = await db.collection('Users').insertOne({
             Login: login, Password: password,
             Name: name, ColorScore: score, ReactionScore: score, TypingScore: score
