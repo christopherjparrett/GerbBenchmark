@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 //silly update line
 const MongoClient = require('mongodb').MongoClient;
+const ObjectId = require('mongodb').ObjectId;
 const url = 'mongodb+srv://christopherjparrett:LSNTxt8JgrjqOCEM@cluster0.mfdvieh.mongodb.net/COP4331?retryWrites=true&w=majority&appName=Cluster0';
 const client = new MongoClient(url);
 client.connect();
@@ -95,18 +96,22 @@ app.post('/api/deleteUser', async (req, res, next) => {
     var error = '';
     var doBool = true;
 
-    var oldId;
+    var objId;
+    var isDeleted = false;
 
     const db = client.db();
 
-    const { login, password } = req.body;
+    const { _id: ID } = req.body;
 
-    if (!login || !password) {
+    if (ID != null)
+        objId = new ObjectId(ID);
+
+    if (!objId) {
         error = 'Not enough information present to delete';
         doBool = false;
     }
     else {
-        const user = await db.collection('Users').find({ Login: login, Password: password }).toArray();
+        const user = await db.collection('Users').find({ _id: objId }).toArray();
         if (user.length <= 0) {
             error = 'User could not be found!';
             doBool = false;
@@ -117,15 +122,64 @@ app.post('/api/deleteUser', async (req, res, next) => {
     }
 
     if (doBool) {
-        await db.collection('Users').deleteOne({ Login: login, Password: password });
+        await db.collection('Users').deleteOne({ _id: objId });
         error = 'deleted the user';
+        isDeleted = true;
     }
 
     var ret = {
-        id: oldId,
-        error: error
+        id: objId,
+        error: error,
+        boolStatus: isDeleted
     }
     res.status(200).json(ret);
 });
+
+app.post('/api/colorScore', async (req, res, next) =>{
+
+    var error = '';
+    var playerScore;
+    const { _id: ID, ColorScore: score } = req.body;
+
+    var objId;
+    var doBool = true;
+
+    if (ID != null)
+        objId = new ObjectId(ID);
+
+    playerScore = parseInt(score);
+
+    if (isNaN(playerScore)) {
+        doBool = false;
+        error = 'Score is not a number';
+    }
+
+    const db = client.db();
+
+    if (!objId || !score) {
+        error = 'Not enough information present to update';
+        doBool = false;
+    }
+
+    const user = await db.collection('Users').find({ _id: objId }).toArray();
+
+    if (user.length <= 0) {
+        doBool = false;
+        error = 'Could not find the user';
+    }
+
+    if (doBool) {
+        await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: playerScore } });
+        error = 'Successfully updated the score';
+    }
+
+    var ret = {
+        id: objId,
+        error: error,
+        score: playerScore
+    }
+    res.status(200).json(ret);  
+});
+
 
 app.listen(5000);

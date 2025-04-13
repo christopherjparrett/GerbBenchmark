@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Profile from '../components/Profile.tsx';
 import '../Styles/Home.css';
 import ColorPNG from '../assets/ColorsPNG.png'
 import GerbPNG from '../assets/Gerbster.png'
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
     <div className="Overlord" style={{backgroundImage: `url(${GerbPNG})`}}>
         <div className='Banner'>
             <h1>Welcome to the Home Page!</h1>
+            <Profile />
         </div>
       <button className = "HomeScreenButton" onClick={() => goTo('Color')}>
         <img src={ColorPNG} alt="Colors Button Logo" className="ButtonImage"></img>
