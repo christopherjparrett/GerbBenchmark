@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import profile from '../components/Home.tsx';
 import '../Styles/Home.css';
 import ColorPNG from '../assets/ColorsPNG.png'
 import GerbPNG from '../assets/Gerbster.png'
@@ -14,6 +15,7 @@ const Home: React.FC = () => {
 
   return (
     <div className="Overlord" style={{backgroundImage: `url(${GerbPNG})`}}>
+        <profile />
         <div className='Banner'>
             <h1>Welcome to the Home Page!</h1>
         </div>
