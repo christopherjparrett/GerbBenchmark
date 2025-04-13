@@ -138,6 +138,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
 app.post('/api/colorScore', async (req, res, next) =>{
 
     var error = '';
+    var playerScore;
     const { _id: ID, ColorScore: score } = req.body;
 
     var objId;
@@ -145,6 +146,8 @@ app.post('/api/colorScore', async (req, res, next) =>{
 
     if (ID != null)
         objId = new ObjectId(ID);
+
+    playerScore = parseInt(score);
 
     const db = client.db();
 
@@ -161,7 +164,7 @@ app.post('/api/colorScore', async (req, res, next) =>{
     }
 
     if (doBool) {
-        await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: score } });
+        await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: playerScore } });
         error = 'Successfully updated the score';
     }
 
