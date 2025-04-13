@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function profile(){
+function Profile(){
 
 
   return (
@@ -48,4 +48,4 @@ function profile(){
   );
 };
 
-export default profile;
+export default Profile;
