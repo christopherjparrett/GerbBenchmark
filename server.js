@@ -125,7 +125,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
         id: oldId,
         error: error
     }
-
+    res.status(200).json(ret);
 });
 
 app.listen(5000);
