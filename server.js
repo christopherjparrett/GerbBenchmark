@@ -117,7 +117,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
     }
 
     if (doBool) {
-        const results = await db.collection('Users').deleteOne({ Login: login, Password: password }).toArray();
+        await db.collection('Users').deleteOne({ Login: login, Password: password });
         error = 'deleted the user';
     }
 
