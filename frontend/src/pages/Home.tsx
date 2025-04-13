@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import profile from '../components/Home.tsx';
+import Home from '../components/Home.tsx';
 import '../Styles/Home.css';
 import ColorPNG from '../assets/ColorsPNG.png'
 import GerbPNG from '../assets/Gerbster.png'
