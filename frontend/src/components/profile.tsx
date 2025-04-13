@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function Home(){
+function profile(){
 
 
   return (
@@ -48,4 +48,4 @@ function Home(){
   );
 };
 
-export default Home;
+export default profile;
