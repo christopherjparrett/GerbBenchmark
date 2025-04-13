@@ -91,4 +91,41 @@ app.post('/api/register', async (req, res, next) => {
     res.status(200).json(ret);
 });
 
+app.post('/api/deleteUser', async (req, res, next) => {
+    var error = '';
+    var doBool = true;
+
+    var oldId;
+
+    const db = client.db();
+
+    const { login, password } = req.body;
+
+    if (!login || !password) {
+        error = 'Not enough information present to delete';
+        doBool = false;
+    }
+    else {
+        const user = await db.collection('Users').find({ Login: login, Password: password }).toArray();
+        if (user.length <= 0) {
+            error = 'User could not be found!';
+            doBool = false;
+        }
+        else {
+            oldId = user[0]._id;
+        }
+    }
+
+    if (doBool) {
+        const results = await db.collection('Users').deleteOne({ Login: login, Password: password }).toArray();
+        error = 'deleted the user';
+    }
+
+    var ret = {
+        id: oldId,
+        error: error
+    }
+
+});
+
 app.listen(5000);
