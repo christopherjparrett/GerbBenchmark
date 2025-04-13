@@ -1,9 +1,13 @@
 ﻿import React, { useState } from 'react';
-function Login() {
+function Register() {
     const [message, setMessage] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
     const [loginPassword, setPassword] = React.useState('');
     const [userName, setUserName] = React.useState('');
+
+    function handleSetName(e: any): void {
+        setName(e.target.value);
+    }
 
     function handleSetLoginName(e: any): void {
         setLoginName(e.target.value);
@@ -50,12 +54,13 @@ function Login() {
 
     return (
         <div id="loginDiv">
-            <span id="inner-title">PLEASE LOG IN</span><br />
+            <span id="inner-title">Enter User Information</span><br />
+            <input type="text" id="name" placeholder="Name" onChange={handleSetName} /><br />
             <input type="text" id="loginName" placeholder="Username" onChange={handleSetLoginName} /><br />
             <input type="password" id="loginPassword" placeholder="Password" onChange={handleSetPassword} /><br />
-            <input type="submit" id="loginButton" className="buttons" value="Do It"
-                onClick={doLogin} />
-            <span id="loginResult">{message}</span>
+            <input type="submit" id="loginButton" className="buttons" value="Sign Up"
+                onClick={doRegister} />
+            <span id="signupResult">{message}</span>
         </div>
     );
 
