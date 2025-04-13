@@ -28,7 +28,7 @@ function Profile(){
                           <p>Log Out</p>
                             <span> > </span>
 
-                        <a href="#" class="sub-menu-link">
+                        <a href="#" class="sub-menu-link"/>
                           <img src="../assets/logo.png"/>
                           <p>Delete User</p>
                             <span>></span>
