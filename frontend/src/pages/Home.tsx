@@ -15,9 +15,9 @@ const Home: React.FC = () => {
 
   return (
     <div className="Overlord" style={{backgroundImage: `url(${GerbPNG})`}}>
+        <Profile />
         <div className='Banner'>
             <h1>Welcome to the Home Page!</h1>
-            <Profile />
         </div>
       <button className = "HomeScreenButton" onClick={() => goTo('Color')}>
         <img src={ColorPNG} alt="Colors Button Logo" className="ButtonImage"></img>
