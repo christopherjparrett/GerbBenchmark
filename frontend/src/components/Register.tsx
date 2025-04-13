@@ -1,7 +1,7 @@
 ﻿import React, { useState } from 'react';
 function Register() {
     const [message, setMessage] = React.useState('');
-    const [name, setName] = React.useState('');
+    const [userName, setName] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
     const [loginPassword, setPassword] = React.useState('');
 
@@ -20,7 +20,7 @@ function Register() {
     async function doRegister(event: any): Promise<void> {
         event.preventDefault();
 
-        var obj = { login: loginName, password: loginPassword, name: name };
+        var obj = { login: loginName, password: loginPassword, name: userName };
         var js = JSON.stringify(obj);
 
         try {
