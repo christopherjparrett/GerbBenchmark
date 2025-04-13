@@ -149,6 +149,11 @@ app.post('/api/colorScore', async (req, res, next) =>{
 
     playerScore = parseInt(score);
 
+    if (isNaN(playerScore)) {
+        doBool = false;
+        error = 'Score is not a number';
+    }
+
     const db = client.db();
 
     if (!objId || !score) {
