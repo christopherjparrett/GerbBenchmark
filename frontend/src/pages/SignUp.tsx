@@ -15,7 +15,7 @@ const SignUp: React.FC = () => {
       <h1>Welcome to the SignUp Page!</h1>
       <PageTitle />
         <Register />
-          <button className = "SignUpButton" onClick={() => goTo('LoginPage')}>
+          <button className = "SignUpButton" onClick={() => goTo('')}>
         <div className='ButtonText'>Return to Login</div>
               </button>
     </div>
