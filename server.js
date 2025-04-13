@@ -96,7 +96,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
     var doBool = true;
 
     var oldId;
-    const objId;
+    var objId;
 
     const db = client.db();
 
