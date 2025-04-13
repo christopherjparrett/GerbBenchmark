@@ -99,14 +99,16 @@ app.post('/api/deleteUser', async (req, res, next) => {
 
     const db = client.db();
 
-    const { login, password } = req.body;
+    const { _id: ID } = req.body;
 
-    if (!login || !password) {
+
+
+    if (!ID) {
         error = 'Not enough information present to delete';
         doBool = false;
     }
     else {
-        const user = await db.collection('Users').find({ Login: login, Password: password }).toArray();
+        const user = await db.collection('Users').find({ _id: ID }).toArray();
         if (user.length <= 0) {
             error = 'User could not be found!';
             doBool = false;
@@ -117,7 +119,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
     }
 
     if (doBool) {
-        await db.collection('Users').deleteOne({ Login: login, Password: password });
+        await db.collection('Users').deleteOne({ _id: ID });
         error = 'deleted the user';
     }
 
