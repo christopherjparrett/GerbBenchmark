@@ -4,6 +4,7 @@ function Profile(){
 
 
   return (
+    <>
           <div id="profileDiv">
               <nav>
                   <img src="../assets/logo.png" class="logo"/>
@@ -45,6 +46,7 @@ function Profile(){
             subMenu.classList.toggle()"open-menu");
           }
         </script>
+      </>
   );
 };
 
