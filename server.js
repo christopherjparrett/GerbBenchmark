@@ -61,6 +61,12 @@ app.post('/api/register', async (req, res, next) => {
 
     if (!login || !password || !name) {
         error = 'All fields are required';
+        var ret =
+        {
+            error: error,
+            id: newId
+        }
+        res.status(200).json(ret);
     }
 
     const db = client.db();
