@@ -1,0 +1,11 @@
+#gameDisplay{
+    display: flex;
+}
+#scoreDisplay{
+    visibility: hidden;
+}
+#output, #message{
+    padding: 5px;
+    text-align: left;
+    flex-basis: 50%;
+}
