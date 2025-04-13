@@ -23,7 +23,7 @@ function Profile(){
                       </div>
                         <hr>
 
-                        <a href="#" class="sub-menu-link">
+                        <a href="#" class="sub-menu-link"/>
                           <img src="../assets/logo.png"/>
                           <p>Log Out</p>
                             <span> > </span>
