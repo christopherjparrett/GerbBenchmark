@@ -171,7 +171,7 @@ app.post('/api/colorScore', async (req, res, next) =>{
     var ret = {
         id: objId,
         error: error,
-        score: score
+        score: playerScore
     }
     res.status(200).json(ret);  
 });
