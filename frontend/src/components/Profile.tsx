@@ -32,7 +32,7 @@ function Profile(){
                         <a href="#" class="sub-menu-link"/>
                           <img src="../assets/logo.png"/>
                           <p>Delete User</p>
-                            <span>></span>
+                            <span> a </span>
                     </div>
                   </div>
                     
