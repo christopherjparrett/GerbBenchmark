@@ -18,7 +18,7 @@ function Profile(){
                   <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
                       <div class="user-info">
-                        <img src="../assets/user.png"> 
+                        <img src="../assets/user.png"></img> 
                         <h3>Matthew Gerber</h3>  
                       </div>
                         <hr>
