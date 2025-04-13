@@ -1,6 +1,7 @@
 ﻿import React, { useState } from 'react';
 function Register() {
     const [message, setMessage] = React.useState('');
+    const [name, setName] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
     const [loginPassword, setPassword] = React.useState('');
     const [userName, setUserName] = React.useState('');
