@@ -26,7 +26,7 @@ function Profile(){
                         <a href="#" class="sub-menu-link">
                           <img src="../assets/logo.png"/>
                           <p>Log Out</p>
-                            <span>></span>
+                            <span> > </span>
 
                         <a href="#" class="sub-menu-link">
                           <img src="../assets/logo.png"/>
