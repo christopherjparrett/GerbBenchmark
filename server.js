@@ -112,7 +112,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
     else {
         const user = await db.collection('Users').find({ _id: objId }).toArray();
         if (user.length <= 0) {
-            error = 'User could not be found!';
+            error = 'User could not be found!' + ' ID is ' + ID;
             doBool = false;
         }
         else {
