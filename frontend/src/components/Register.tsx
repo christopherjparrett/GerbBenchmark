@@ -4,7 +4,6 @@ function Register() {
     const [name, setName] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
     const [loginPassword, setPassword] = React.useState('');
-    const [userName, setUserName] = React.useState('');
 
     function handleSetName(e: any): void {
         setName(e.target.value);
@@ -18,14 +17,10 @@ function Register() {
         setPassword(e.target.value);
     }
 
-    function handleSetUserName(e: any): void {
-        setUserName(e.target.value);
-    }
-
     async function doRegister(event: any): Promise<void> {
         event.preventDefault();
 
-        var obj = { login: loginName, password: loginPassword, name: userName };
+        var obj = { login: loginName, password: loginPassword, name: name };
         var js = JSON.stringify(obj);
 
         try {
