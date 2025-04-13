@@ -98,6 +98,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
 
     var oldId;
     var objId;
+    var isDeleted = false;
 
     const db = client.db();
 
@@ -113,7 +114,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
     else {
         const user = await db.collection('Users').find({ _id: objId }).toArray();
         if (user.length <= 0) {
-            error = 'User could not be found!' + ' ID is ' + ID;
+            error = 'User could not be found!';
             doBool = false;
         }
         else {
@@ -124,11 +125,13 @@ app.post('/api/deleteUser', async (req, res, next) => {
     if (doBool) {
         await db.collection('Users').deleteOne({ _id: objId });
         error = 'deleted the user';
+        isDeleted = true;
     }
 
     var ret = {
         id: objId,
-        error: error
+        error: error,
+        boolStatus: isDeleted
     }
     res.status(200).json(ret);
 });
