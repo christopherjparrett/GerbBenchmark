@@ -6,14 +6,14 @@ function Profile(){
   return (
           <div id="profileDiv">
               <nav>
-                  <img src="../assets/logo.png" class="logo">
+                  <img src="../assets/logo.png" class="logo"/>
                   <ul>
                     <li><a href="#">Home</a></li>
                     <li><a href="#">Features</a></li>
                     <li><a href="#">About</a></li>
                     <li><a href="#">Contact</a></li>
                   </ul>
-                  <img src="../assets/user.png" class="user-pic" onclick="toggleMenu()">  
+                  <img src="../assets/user.png" class="user-pic" onclick="toggleMenu()"/>  
 
                   <div class="sub-menu-wrap" id="subMenu">
                     <div class="sub-menu">
