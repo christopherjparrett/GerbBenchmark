@@ -138,7 +138,6 @@ app.post('/api/deleteUser', async (req, res, next) => {
 app.post('/api/colorScore', async (req, res, next) =>{
 
     var error = '';
-    var score;
     const { _id: ID, ColorScore: score } = req.body;
 
     var objId;
