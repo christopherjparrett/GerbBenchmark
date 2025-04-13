@@ -21,7 +21,7 @@ function Profile(){
                         <img src="../assets/user.png"></img> 
                         <h3>Matthew Gerber</h3>  
                       </div>
-                        <hr>
+                        <hr></hr>
 
                         <a href="#" class="sub-menu-link"/>
                           <img src="../assets/logo.png"/>
