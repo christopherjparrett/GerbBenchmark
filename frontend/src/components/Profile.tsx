@@ -18,10 +18,7 @@ function Profile() {
         <img src={logo} className="logo" alt="logo" style={{ filter: 'invert(100%)' }} />
 
         <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Features</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Contact</a></li>
+          <li><a onClick={() => navigate('')} style={{ cursor: 'pointer' }}>Home</a></li>
         </ul>
 
         <img
