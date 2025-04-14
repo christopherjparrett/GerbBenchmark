@@ -1,7 +1,4 @@
-﻿import React from 'react';
-import React, { useState } from 'react';
-
-function DeleteUser() {
+﻿function DeleteUser() {
     const [message, setMessage] = React.useState('');
     var _ud = localStorage.getItem('user_data');
     if (_ud == null) _ud = "";
@@ -36,7 +33,7 @@ function DeleteUser() {
 
     //TO DO ==========
     //Add a return div like in the other .tsx components to act as the button to call this API function when pressed
-        
+
     return (
         <a onClick={doDeleteUser} className="sub-menu-link">
             <img src={require('../assets/remove-user.png')} alt="Delete User" />
