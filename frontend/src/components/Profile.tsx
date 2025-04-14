@@ -15,7 +15,7 @@ function Profile() {
   return (
     <div id="profileDiv">
       <nav>
-        <img src={logo} className="logo" alt="logo" />
+        <img src={logo} className="logo" alt="logo" style={{ filter: 'invert(100%)' }} />
 
         <ul>
           <li><a href="#">Home</a></li>
