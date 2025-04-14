@@ -1,19 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function CookieKing() {
   const navigate = useNavigate();
+  useEffect(() => {
+    const userData = localStorage.getItem('user_data');
+    if (!userData) {
+      navigate('/');
+      return;
+    }
+  }, [navigate]);
 
-    const goTo = (inputs: string) =>{
-        navigate(`/${inputs}`);
-    };
-  const userData = localStorage.getItem('user_data');
-  if(!userData){
-    goTo('');
-  }
-  return (
-    <></>
-  );
+  // Return null since we don't need to render anything
+  return null;
 }
 
 export default CookieKing;
