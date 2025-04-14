@@ -120,7 +120,7 @@ function ColorGame() {
     }
 
     return (
-        <div>
+        <div id="color">
             <button id="startButton" onClick={startGame} z-index="1">Start</button>
             <div id="scoreDisplay">
                 <div id="timer" style={{ fontSize: '100px' }}>

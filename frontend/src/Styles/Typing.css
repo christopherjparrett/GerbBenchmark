@@ -1,13 +1,13 @@
-#startButton {
+#typing #startButton {
   margin-top: 200px;
 }
-#gameDisplay{
+#typing #gameDisplay{
     display: flex;
 }
-#scoreDisplay{
+#typing #scoreDisplay{
     visibility: hidden;
 }
-#output, #message{
+#typing #output, #typing #message{
     padding: 5px;
     text-align: left;
     flex-basis: 50%;

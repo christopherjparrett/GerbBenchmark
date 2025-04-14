@@ -1,7 +1,6 @@
 import React from 'react';
 import Profile from '../components/Profile.tsx';
 import TypingGame from '../components/TypingGame.tsx';
-import '../Styles/Typing.css';
 import CookieKing from '../components/CookieKing.tsx';
 const Typing: React.FC = () => {
   return (
