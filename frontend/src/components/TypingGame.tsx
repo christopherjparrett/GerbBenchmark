@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { generate } from "random-words";
 import '../Styles/Typing.css';
+import Leaderboard from './Leaderboard';
 function TypingGame() {
 
     var _ud = localStorage.getItem('user_data');
@@ -18,6 +19,7 @@ function TypingGame() {
     const [message, setMessage] = useState('');
     const [output, setOutput] = useState('');
     const [counter, setCounter] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
     let index = 0;
     let length = 0;
     let mistakes = 0;
@@ -58,7 +60,8 @@ function TypingGame() {
                 let WPM = (length / 5 / (Date.now() - stime + 250 * mistakes) * 60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
                 updateScore(parseFloat(WPM));
-                window.location.href = '/Home';
+                setGameOver(true);
+                //window.location.href = '/Home';
             }
 
         }
@@ -89,6 +92,9 @@ function TypingGame() {
     return (
 
         <div id="typing">
+            {gameOver && (
+                <Leaderboard gameId={3} gameLabel="TypingScore" show={true} />
+            )}
             <button id="startButton" onClick={startGame} z-index="1">Start</button>
             <div id="scoreDisplay">
                 <div style={{ fontSize: '100px' }}>
