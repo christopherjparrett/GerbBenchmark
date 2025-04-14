@@ -135,6 +135,32 @@ app.post('/api/deleteUser', async (req, res, next) => {
     res.status(200).json(ret);
 });
 
+app.post('/api/pullLeaderBoard', async (req, res, next) => {
+
+    var error = '';
+    const {gameId: game };
+
+    const user = await db.collection('Users').find().toArray();
+
+    switch (game) {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            user.sort((a, b) => a.TypingScore - b.TypingScore);
+            break;
+    }
+
+    var top10 = user.slice(0, 10);
+
+    var ret = {
+        gameLeaders: top10,
+        error: error
+    }
+
+});
+
 app.post('/api/changeScore', async (req, res, next) =>{
 
     var error = '';
