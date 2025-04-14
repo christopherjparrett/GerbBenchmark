@@ -83,8 +83,9 @@ const ReactionSpeedGame: React.FC = () =>
 
   // Visuals
   const wrapper: React.CSSProperties = {
-    display:'flex', flexDirection:'column',
-    alignItems:'center', textAlign:'center', gap:'20px'
+    display:'flex', flexDirection:'column', 
+    alignItems:'center', justifyContent:'center', 
+    textAlign:'center', gap:'20px', minHeight:'calc(100vh - 120px)'
   };
 
   const box: React.CSSProperties = {
