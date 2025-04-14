@@ -55,9 +55,9 @@ const Home: React.FC = () => {
                         </div>
                         <div className="ButtonBack">
                             <div className='ButtonText'>
-                                How fast can you react<br></br>
+                                How fast can you react?<br></br>
                                 The screen will change after some time and you are supposed to press the button as fast as you can!<br></br>
-                                
+                                The faster you react, the better!
                             </div>
                         </div>
                     </button>
