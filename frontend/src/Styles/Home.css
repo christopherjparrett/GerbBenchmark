@@ -129,5 +129,7 @@ display: block;
     margin-left: auto;  /* Centers the container */
     margin-right: auto;  /* Centers the container */
     overflow-x: auto; 
+    flex: 1; /* This makes it fill available space */
+    min-height: 0;
 }
 
