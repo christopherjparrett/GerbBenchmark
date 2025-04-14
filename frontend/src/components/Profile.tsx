@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../Styles/Profile.css';
 
 function Profile() {
   const [menuOpen, setMenuOpen] = useState(false);
