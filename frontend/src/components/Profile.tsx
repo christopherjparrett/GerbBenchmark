@@ -6,6 +6,7 @@ import userDelete from '../assets/remove-user.png';
 import logout from '../assets/logout.png';
 import { useNavigate } from 'react-router-dom';
 import CookieKing from '../components/CookieKing.tsx';
+import DeleteUser from '../components/DeleteUser.tsx';
 
 function Profile() {
   const navigate = useNavigate();
@@ -53,11 +54,7 @@ function Profile() {
               <span>  </span>
             </a>
 
-            <a href="/" className="sub-menu-link">
-              <img src={userDelete} alt="Delete User" />
-              <p>Delete User</p>
-              <span>  </span>
-            </a>
+            <DeleteUser />
           </div>
         </div>
       </nav>
