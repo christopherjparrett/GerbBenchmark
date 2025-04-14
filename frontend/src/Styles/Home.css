@@ -1,7 +1,7 @@
 .Banner {
     background-color: #2D033B;
     width: 100vw;
-    height: 30vh;
+    height: calc(30vh - 60px);
     color: #FAFF81;
     display: flex;
     justify-content: center;
