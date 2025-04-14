@@ -8,7 +8,14 @@
     align-items: center;
     text-align: center;
 }
-
+#root {
+    padding: 0;
+    max-width: 100%;
+  }
+  
+body {
+display: block;
+}
 .Overlord {
     height: 100vh;
     width: 100%;
@@ -120,4 +127,5 @@
     margin-right: auto;  /* Centers the container */
     flex: 1; 
     overflow-y: auto; 
+    overflow-x: auto; 
 }
