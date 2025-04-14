@@ -1,7 +1,7 @@
 .Banner {
     background-color: #2D033B;
     width: 100vw;
-    height: calc(30vh - 60px);
+    height: 30vh;
     color: #FAFF81;
     display: flex;
     justify-content: center;
@@ -24,7 +24,7 @@ display: block;
     align-items: center;
     background-color: #322F42;
     margin: 0;
-    padding-top: 60px;
+    padding-top: 120px;
 }
 
 .ButtonContainer {
