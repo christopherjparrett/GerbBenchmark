@@ -5,6 +5,7 @@ import userPic from '../assets/user.png';
 import userDelete from '../assets/remove-user.png';
 import logout from '../assets/logout.png';
 import { useNavigate } from 'react-router-dom';
+import CookieKing from '../components/CookieKing.tsx';
 
 function Profile() {
   const navigate = useNavigate();
@@ -22,6 +23,7 @@ function Profile() {
   const userName = user.name;
   return (
     <div id="profileDiv">
+      <CookieKing />
       <nav>
         <img src={logo} className="logo" alt="logo" style={{ filter: 'invert(100%)' }} />
 
