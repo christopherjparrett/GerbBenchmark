@@ -29,6 +29,7 @@ function Profile() {
           className="user-pic"
           onClick={toggleMenu}
           alt="user"
+          style={{ filter: 'invert(100%)' }}
         />
 
         <div className={`sub-menu-wrap ${menuOpen ? 'open-menu' : ''}`} id="subMenu">
