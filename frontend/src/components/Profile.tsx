@@ -6,7 +6,6 @@ import userDelete from '../assets/remove-user.png';
 import logout from '../assets/logout.png';
 import { useNavigate } from 'react-router-dom';
 import CookieKing from '../components/CookieKing.tsx';
-import DeleteUser from '../components/DeleteUser.tsx';
 
 function Profile() {
   const navigate = useNavigate();
