@@ -15,50 +15,53 @@ const Home: React.FC = () => {
 
 
   return (
-    <div className="Overlord">
-        <div className='Banner'>
-            <h1>Welcome to the Home Page!</h1>
-        </div>
-        <div className='AllButtons'>
-                <button className = "HomeScreenButton" onClick={() => goTo('Color')}>
+    <div>
+        <Profile />
+        <div className="Overlord">
+            <div className='Banner'>
+                <h1>Welcome to the Home Page!</h1>
+            </div>
+            <div className='AllButtons'>
+                    <button className = "HomeScreenButton" onClick={() => goTo('Color')}>
+                        <div className="ButtonFront">
+                            <img src={ColorPNG} alt="Colors Button Logo" className="ButtonImage"></img>
+                            <div className='ButtonText'>Color Comprehension Test</div>
+                        </div>
+                        <div className="ButtonBack">
+                            <div className='ButtonText'>
+                                Test your color recognition skills!
+                                Multiple squares will appear on the screen and one will be slightly different.
+                                Try to identify the different square and get as many points as you can!
+                            </div>
+                        </div>
+                    </button>
+                    <button className = "HomeScreenButton" onClick={() => goTo('Typing')}>
                     <div className="ButtonFront">
-                        <img src={ColorPNG} alt="Colors Button Logo" className="ButtonImage"></img>
-                        <div className='ButtonText'>Color Comprehension Test</div>
-                    </div>
-                    <div className="ButtonBack">
-                        <div className='ButtonText'>
-                            Test your color recognition skills!
-                            Multiple squares will appear on the screen and one will be slightly different.
-                            Try to identify the different square and get as many points as you can!
+                            <img src={TypingPNG} alt="Colors Button Logo" className="ButtonImage"></img>
+                            <div className='ButtonText'>Typing Speed Test</div>
                         </div>
-                    </div>
-                </button>
-                <button className = "HomeScreenButton" onClick={() => goTo('Typing')}>
-                <div className="ButtonFront">
-                        <img src={TypingPNG} alt="Colors Button Logo" className="ButtonImage"></img>
-                        <div className='ButtonText'>Typing Speed Test</div>
-                    </div>
-                    <div className="ButtonBack">
-                        <div className='ButtonText'>
-                            Test your Typing skills!<br></br>
-                            A sentence will appear on the screen and you will have to type it as fast as you can!<br></br>
-                            Wrong inputs will be penalized, so be careful!
+                        <div className="ButtonBack">
+                            <div className='ButtonText'>
+                                Test your Typing skills!<br></br>
+                                A sentence will appear on the screen and you will have to type it as fast as you can!<br></br>
+                                Wrong inputs will be penalized, so be careful!
+                            </div>
                         </div>
-                    </div>
-                </button>
-                <button className = "HomeScreenButton" onClick={() => goTo('Reaction')}>
-                <div className="ButtonFront">
-                        <img src={ReactionPNG} alt="Colors Button Logo" className="ButtonImage"></img>
-                        <div className='ButtonText'>Reaction Time Test</div>
-                    </div>
-                    <div className="ButtonBack">
-                        <div className='ButtonText'>
-                            How fast can you react<br></br>
-                            The screen will change after some time and you are supposed to press the button as fast as you can!<br></br>
-                            
+                    </button>
+                    <button className = "HomeScreenButton" onClick={() => goTo('Reaction')}>
+                    <div className="ButtonFront">
+                            <img src={ReactionPNG} alt="Colors Button Logo" className="ButtonImage"></img>
+                            <div className='ButtonText'>Reaction Time Test</div>
                         </div>
-                    </div>
-                </button>
+                        <div className="ButtonBack">
+                            <div className='ButtonText'>
+                                How fast can you react<br></br>
+                                The screen will change after some time and you are supposed to press the button as fast as you can!<br></br>
+                                
+                            </div>
+                        </div>
+                    </button>
+            </div>
         </div>
     </div>
   );
