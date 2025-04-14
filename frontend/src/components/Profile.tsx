@@ -40,13 +40,13 @@ function Profile() {
             <a href="#" className="sub-menu-link">
               <img src={logo} alt="logo" />
               <p>Log Out</p>
-              <span> a </span>
+              <span>  </span>
             </a>
 
             <a href="#" className="sub-menu-link">
               <img src={logo} alt="logo" />
               <p>Delete User</p>
-              <span> a </span>
+              <span>  </span>
             </a>
           </div>
         </div>
