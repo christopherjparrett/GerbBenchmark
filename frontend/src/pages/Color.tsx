@@ -4,8 +4,8 @@ import CookieKing from '../components/CookieKing.tsx';
 const Color: React.FC = () => {
   return (
     <div>
-      <Profile />
       <CookieKing />
+      <Profile />
       <h1>Welcome to the Color Page!</h1>
     </div>
   );

@@ -5,6 +5,7 @@ import '../Styles/Home.css';
 import ColorPNG from '../assets/ColorsPNG.png'
 import TypingPNG from '../assets/TypingPNG.png'
 import ReactionPNG from '../assets/ReactionPNG.png'
+import CookieKing from '../components/CookieKing.tsx';
 const Home: React.FC = () => {
     const navigate = useNavigate();
 
@@ -16,6 +17,7 @@ const Home: React.FC = () => {
 
   return (
     <div>
+        <CookieKing />
         <Profile />
         <div className="Overlord">
             <div className='Banner'>
