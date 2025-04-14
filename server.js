@@ -185,7 +185,7 @@ app.post('/api/changeScore', async (req, res, next) =>{
                 break;
             case 3:
                 oldScore = user[0].TypingScore;
-                if (oldScore > newScore) {
+                if (oldScore > score) {
                     doBool = false;
                     error = 'old score was better';
                 }
