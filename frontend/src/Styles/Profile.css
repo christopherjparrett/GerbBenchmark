@@ -96,9 +96,6 @@ nav ul li a{
     margin: 15px 0 10px;
 }
 
-.sub-menu:hover{
-    background-color: #cfcfcf;
-}
 
 .sub-menu-link p{
     width: 100%;
@@ -123,6 +120,9 @@ nav ul li a{
 
 .sub-menu-link:hover p{
     font-weight: 600;
+}
+.sub-menu-link:hover{
+    background-color: #cfcfcf;
 }
 #profileDiv {
     position: fixed;
