@@ -59,7 +59,6 @@ display: block;
     text-align: center;
     width: 100%;
     bottom: 10px;
-    padding: 0px;
 }
 .HomeScreenButton{
     position: relative;
@@ -74,7 +73,6 @@ display: block;
     border-radius: 12px;
     overflow: hidden;
     border: 2px solid black;
-    padding: 30px; 
 }
 .HomeScreenButton:hover{
     border: 2px solid #4B3A70;
@@ -133,5 +131,6 @@ display: block;
     overflow-x: auto; 
     flex: 1; /* This makes it fill available space */
     min-height: 0;
+    padding: 30px; 
 }
 
