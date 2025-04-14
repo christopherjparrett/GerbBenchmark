@@ -1,3 +1,6 @@
+#startButton {
+  margin-top: 200px;
+}
 #gameDisplay{
     display: flex;
 }

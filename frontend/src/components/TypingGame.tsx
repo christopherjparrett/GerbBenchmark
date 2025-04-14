@@ -89,9 +89,7 @@ function TypingGame() {
     return (
 
         <div>
-            <div style="margin-top: 100px;">
-                <button id="startButton" onClick={startGame} z-index="1">Start</button>
-            </div>
+            <button id="startButton" onClick={startGame} z-index="1">Start</button>
             <div id="scoreDisplay">
                 <div style={{ fontSize: '100px' }}>
                     <span>{formatTime(minutes)}</span>:<span>{formatTime(seconds)}</span>
