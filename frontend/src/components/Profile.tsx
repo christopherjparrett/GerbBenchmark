@@ -47,13 +47,13 @@ function Profile() {
             </div>
             <hr />
 
-            <a href="#" className="sub-menu-link">
+            <a href="/" className="sub-menu-link">
               <img src={logout} alt="logout" />
               <p>Log Out</p>
               <span>  </span>
             </a>
 
-            <a href="#" className="sub-menu-link">
+            <a href="/" className="sub-menu-link">
               <img src={userDelete} alt="Delete User" />
               <p>Delete User</p>
               <span>  </span>
