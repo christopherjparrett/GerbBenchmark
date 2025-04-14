@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { generate } from "random-words";
+import '../Styles/Typing.css';
 function TypingGame() {
 
     var _ud = localStorage.getItem('user_data');
