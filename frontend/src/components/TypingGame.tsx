@@ -63,6 +63,7 @@ function TypingGame() {
                 let WPM = (length/5/(Date.now()-stime + 250 * mistakes)*60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
                 updateScore(parseFloat(WPM));
+                window.location.href = '/Home';
             }
 
         }
