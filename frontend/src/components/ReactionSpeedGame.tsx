@@ -10,7 +10,7 @@ try {
 
 async function updateScore(score: number)
 {
-  const obj = { _id: userId, GameScore: score, gameId: 1 };
+  const obj = { _id: userId, GameScore: score, gameId: 2 };
   const js  = JSON.stringify(obj);
 
   try
