@@ -5,6 +5,11 @@ import userPic from '../assets/user.png';
 import { useNavigate } from 'react-router-dom';
 
 function Profile() {
+  const navigate = useNavigate();
+
+    const goTo = (inputs: string) =>{
+        navigate(`/${inputs}`);
+    };
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => {
