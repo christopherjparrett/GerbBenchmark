@@ -78,6 +78,7 @@ nav ul li a{
 .user-info{
     display: flex;
     align-items: center;
+    color: black;
 }
 
 .user-info h3{
