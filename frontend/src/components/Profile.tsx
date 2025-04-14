@@ -9,7 +9,9 @@ function Profile() {
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
-
+  const userData = localStorage.getItem('user_data');
+  const user = JSON.parse(userData || '{}');
+  const userName = user.name;
   return (
     <div id="profileDiv">
       <nav>
@@ -33,7 +35,7 @@ function Profile() {
           <div className="sub-menu">
             <div className="user-info">
               <img src={userPic} alt="user" />
-              <h3>Matthew Gerber</h3>
+              <h3>{userName}</h3>
             </div>
             <hr />
 
