@@ -9,16 +9,10 @@ function TypingGame() {
     var userId = ud.id;
 
     const {
-        totalSeconds,
-        milliseconds,
         seconds,
         minutes,
-        hours,
-        days,
-        isRunning,
         start,
-        pause,
-        reset,
+        pause
     } = useStopwatch({ autoStart: false, interval: 20 });
     const [message, setMessage] = useState('');
     const [output, setOutput] = useState('');

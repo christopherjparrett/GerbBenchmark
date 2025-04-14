@@ -1,12 +1,13 @@
 import React from 'react';
 import Profile from '../components/Profile.tsx';
 import CookieKing from '../components/CookieKing.tsx';
+import ColorGame from '../components/ColorGame.tsx';
 const Color: React.FC = () => {
   return (
     <div>
       <CookieKing />
       <Profile />
-      <h1>Welcome to the Color Page!</h1>
+      <ColorGame />
     </div>
   );
 };

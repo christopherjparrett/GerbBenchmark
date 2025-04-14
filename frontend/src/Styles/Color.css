@@ -1,0 +1,20 @@
+#startButton {
+    margin-top: 200px;
+  }
+  #gameDisplay{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: 90%;
+      margin-left: 5%;
+      visibility: hidden;
+  }
+  #scoreDisplay{
+      visibility: hidden;
+  }
+  #gameDisplay button{
+      margin: 20px;
+      flex-basis: 20%;
+      height: 3em;
+      display: none;
+  }
