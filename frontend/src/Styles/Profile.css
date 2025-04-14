@@ -127,7 +127,7 @@ nav ul li a{
 
 .sub-menu-link:hover p{
     font-weight: 600;
-    color: #cfcfcf;
+    background-color: #cfcfcf;
 }
 #profileDiv {
     position: fixed;
