@@ -49,7 +49,7 @@ function Profile() {
 
             <a href="/" className="sub-menu-link" onClick={(e: React.MouseEvent<HTMLAnchorElement>) => {
     // Clear the cookie
-    Cookies.remove('user_data');
+    localStorage.removeItem('user_data');
   }}>
               <img src={logout} alt="logout" />
               <p>Log Out</p>
