@@ -72,6 +72,7 @@ nav ul li a{
     background: #fff;
     padding: 20px;
     margin: 10px;
+    border-radius: 12px;
 }
 
 .user-info{
