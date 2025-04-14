@@ -149,7 +149,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
         doBool = false;
     }
 
-    const user = await db.collection('Users').find().toArray();
+    const user = await db.collection('Users').find({}, projection{ password:0, Name:0, Login:0 } ).toArray();
     if (doBool) {
         switch (game) {
             case 1:
