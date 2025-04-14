@@ -114,7 +114,7 @@ nav ul li a{
     transition: transform 0.5s;
 }
 
-.sub-menu-link: hover span{
+.sub-menu-link:hover span{
     transform: translateX(5px);
 }
 
