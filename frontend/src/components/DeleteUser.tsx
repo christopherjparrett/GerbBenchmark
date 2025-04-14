@@ -1,4 +1,5 @@
-﻿function DeleteUser() {
+﻿
+function DeleteUser() {
     const [message, setMessage] = React.useState('');
     var _ud = localStorage.getItem('user_data');
     if (_ud == null) _ud = "";

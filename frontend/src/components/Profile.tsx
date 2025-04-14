@@ -6,6 +6,7 @@ import userDelete from '../assets/remove-user.png';
 import logout from '../assets/logout.png';
 import { useNavigate } from 'react-router-dom';
 import CookieKing from '../components/CookieKing.tsx';
+import DeleteUser from '../components/DeleteUser.tsx';
 
 function Profile() {
   const navigate = useNavigate();
@@ -21,6 +22,35 @@ function Profile() {
   const userData = localStorage.getItem('user_data');
   const user = JSON.parse(userData || '{}');
   const userName = user.name;
+
+    async function doDeleteUser(event: any): Promise<void> {
+        event.preventDefault();
+
+        var obj = { _id: user.id };
+        var js = JSON.stringify(obj);
+
+        try {
+            const response = await fetch('https://card.christopherjparrett.xyz/api/deleteUser',
+                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } });
+
+            var res = JSON.parse(await response.text());
+
+            if (res.boolStatus) {//If the user is deleted, simply remove the user data and send them out to the home page
+                alert(res.error);
+                localStorage.removeItem("user_data")
+                window.location.href = '/';
+            }
+            else {//if the user is not deleted, set the error message to display
+                alert(res.error);
+            }
+
+        }
+        catch (error: any) {
+            alert(error.toString());
+            return;
+        }
+    };
+
   return (
     <div id="profileDiv">
       <CookieKing />
@@ -56,10 +86,10 @@ function Profile() {
               <span>  </span>
             </a>
 
-            <a href="/" className="sub-menu-link">
-              <img src={userDelete} alt="Delete User" />
-              <p>Delete User</p>
-              <span>  </span>
+            <a onClick={doDeleteUser} href="/" className="sub-menu-link">
+                <img src={userDelete} alt="Delete User" />
+                <p>Delete User</p>
+                <span>  </span>
             </a>
           </div>
         </div>
