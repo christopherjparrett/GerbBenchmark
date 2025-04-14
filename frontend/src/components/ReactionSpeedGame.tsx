@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Leaderboard from './Leaderboard';
 
 // Fetch logged in user
 let userId = -1;
@@ -44,6 +45,7 @@ const ReactionSpeedGame: React.FC = () =>
   );
   const [startMs, setStartMs] = useState<number>(0);
   const [reaction, setReaction] = useState<number | null>(null);
+  const [showLeaderboard, setShowLeaderboard] = useState<boolean>(false);
 
   // Handlers
   const startGame = () =>
@@ -51,6 +53,7 @@ const ReactionSpeedGame: React.FC = () =>
     setGameState('ready');
     setMessage('Wait for green...');
     setReaction(null);
+    setShowLeaderboard(false);
 
     // random delay
     const delay = Math.floor(Math.random() * 3000) + 3000;
@@ -78,6 +81,7 @@ const ReactionSpeedGame: React.FC = () =>
       setGameState('done');
       setMessage(getFeedback(rt));
       await updateScore(rt);
+      setShowLeaderboard(true);
     }
   }
 
@@ -102,7 +106,12 @@ const ReactionSpeedGame: React.FC = () =>
     <div style={wrapper}>
       {}
       {reaction !== null && (
-        <h2 style={{color:'white'}}>Reaction: {reaction} ms</h2>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <h2 style={{color:'white'}}>Reaction: {reaction} ms</h2>
+          {showLeaderboard && (
+            <Leaderboard gameId={1} gameLabel="ReactionScore" show={true} />
+          )}
+          </div>
       )}
 
       {}
