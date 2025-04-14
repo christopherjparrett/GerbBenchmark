@@ -142,7 +142,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     var doBool = true;
     var top10;
 
-    const {gameId: game } = req.body;
+    const { gameId: game } = req.body;
 
     if (!game) {
         error = 'No game given';
@@ -175,7 +175,55 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     res.status(200).json(ret);
 });
 
-app.post('/api/changeScore', async (req, res, next) =>{
+app.post('/api/retrieveUserScore', async (req, res, next) => {
+
+    var error = '';
+    var playerScore;
+    const { _id: ID, gameId: game } = req.body;
+
+    var objId;
+    var doBool = true;
+
+    if (!ID, !game) {
+        error = 'not enough information';
+        doBool = false;
+    }
+
+    const db = client.db();
+
+    if (ID != null)
+        objId = new ObjectId(ID);
+
+
+    const user = await db.collection('Users').find({ _id: objId }).toArray();
+
+    if (user.length <= 0) {
+        doBool = false;
+        error = 'User not found';
+    }
+    else if(doBool){
+        switch (game) {
+            case 1:
+                playerScore = user[0].ColorScore;
+                break;
+            case 2:
+                playerScore = user[0].ReactionScore;
+                break;
+            case 3:
+                playerScore = user[0].TypingScore;
+                break;
+        }
+        error = 'Score Retrieved';
+    }
+
+    var ret = {
+        score: playerScore,
+        error: error
+    }
+    res.status(200).json(ret);
+});
+
+app.post('/api/changeScore', async (req, res, next) => {
 
     var error = '';
     var playerScore;
@@ -208,7 +256,7 @@ app.post('/api/changeScore', async (req, res, next) =>{
 
     const user = await db.collection('Users').find({ _id: objId }).toArray();
     var oldScore;
-   
+
 
     if (user.length <= 0) {
         doBool = false;
@@ -230,9 +278,9 @@ app.post('/api/changeScore', async (req, res, next) =>{
                     error = 'old score was better';
                 }
                 break;
+        }
     }
-    }
-   
+
 
     //ID: 1 - colorScore, 2 - reactionScore, 3 - TypingScore
     if (doBool) {
@@ -250,7 +298,7 @@ app.post('/api/changeScore', async (req, res, next) =>{
                 error = 'Could not Find Game';
                 doBool = false;
         }
-        if(doBool)
+        if (doBool)
             error = 'Successfully updated the score';
     }
 
@@ -259,7 +307,7 @@ app.post('/api/changeScore', async (req, res, next) =>{
         error: error,
         score: playerScore
     }
-    res.status(200).json(ret);  
+    res.status(200).json(ret);
 });
 
 
