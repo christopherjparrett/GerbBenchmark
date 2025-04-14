@@ -7,14 +7,9 @@ function CookieKing() {
     const goTo = (inputs: string) =>{
         navigate(`/${inputs}`);
     };
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setMenuOpen(!menuOpen);
-  };
   const userData = localStorage.getItem('user_data');
   if(!userData){
-    goTo('login');
+    goTo('');
   }
   return (
     <></>
