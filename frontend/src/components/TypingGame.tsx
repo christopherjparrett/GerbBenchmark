@@ -68,6 +68,7 @@ function TypingGame() {
     return (
 
         <div>
+            <br></br><br></br>
             <button id="startButton" onClick={startGame} z-index="1">Start</button>
             <div id="scoreDisplay">
                 <div style={{ fontSize: '100px' }}>
