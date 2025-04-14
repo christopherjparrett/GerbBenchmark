@@ -138,26 +138,38 @@ app.post('/api/deleteUser', async (req, res, next) => {
 app.post('/api/pullLeaderBoard', async (req, res, next) => {
 
     var error = '';
+    const db = client.db();
+    var doBool = true;
+    var top10;
+
     const {gameId: game } = req.body;
 
-    const user = await db.collection('Users').find().toArray();
-
-    switch (game) {
-        case 1:
-            break;
-        case 2:
-            break;
-        case 3:
-            user.sort((a, b) => a.TypingScore - b.TypingScore);
-            break;
+    if (!game) {
+        error = 'No game given';
+        doBool = false;
     }
 
-    var top10 = user.slice(0, 10);
+    const user = await db.collection('Users').find().toArray();
+    if (doBool) {
+        switch (game) {
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                user.sort((a, b) => a.TypingScore - b.TypingScore);
+                break;
+        }
+    }
+
+    if (doBool)
+        top10 = user.slice(0, 10);
 
     var ret = {
         gameLeaders: top10,
         error: error
     }
+
     res.status(200).json(ret);
 });
 
