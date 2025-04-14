@@ -3,12 +3,25 @@
 }
 #typing #gameDisplay{
     display: flex;
+    background-color: #95ff00;
+    z-index: 1;
 }
 #typing #scoreDisplay{
     visibility: hidden;
 }
 #typing #output, #typing #message{
     padding: 5px;
+
+#typing #output, #typing #message {
+    padding: 20px;
+    color: #FAFF81;
     text-align: left;
     flex-basis: 50%;
+    font-size: 24px;
+    min-height: 100px;
+    border: 1px solid red; /* Debug border */
+    position: relative;
+    z-index: 2;
 }
+
+
