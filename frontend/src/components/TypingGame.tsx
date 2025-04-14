@@ -2,6 +2,12 @@ import { useState } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { generate } from "random-words";
 function TypingGame() {
+
+    var _ud = localStorage.getItem('user_data');
+    if (_ud == null) _ud = "";
+    var ud = JSON.parse(_ud);
+    var userId = ud.id;
+
     const {
         totalSeconds,
         milliseconds,
@@ -57,6 +63,21 @@ function TypingGame() {
                 let WPM = (length/5/(Date.now()-stime + 250 * mistakes)*60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
                 //Do API call here
+                var obj = { _id: userId, GameScore: WPM, 3};
+                var js = JSON.stringify(obj);
+
+                try {
+                    const response = await fetch('https://card.christopherjparrett.xyz/api/changeScore',
+                        { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } });
+
+                    var res = JSON.parse(await response.text());
+
+                    alert(res.error);
+                }
+                catch(error: any) {
+                    alert(error);
+                }
+
             }
 
         }

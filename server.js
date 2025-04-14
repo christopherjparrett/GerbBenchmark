@@ -139,15 +139,15 @@ app.post('/api/changeScore', async (req, res, next) =>{
 
     var error = '';
     var playerScore;
-    const { _id: ID, ColorScore: score, gameId: game } = req.body;
+    const { _id: ID, GameScore: score, gameId: game } = req.body;
 
     var objId;
     var doBool = true;
-    var intGame = parseInt(game);
+    var intGame = game;
     if (ID != null)
         objId = new ObjectId(ID);
 
-    playerScore = parseInt(score);
+    playerScore = score;
 
     if (isNaN(playerScore)) {
         doBool = false;
