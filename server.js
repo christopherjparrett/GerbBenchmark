@@ -157,7 +157,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
             case 2:
                 break;
             case 3:
-                user.sort((a, b) => a.TypingScore - b.TypingScore);
+                user.sort((a, b) => b.TypingScore - a.TypingScore);
                 break;
         }
     }
