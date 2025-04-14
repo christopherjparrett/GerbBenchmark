@@ -20,7 +20,7 @@ function ColorGame() {
     } = useTimer({ expiryTimestamp: time, autoStart: false, interval: 20, onExpire: () => endGame()});
     const score = useRef(0);
     const round = useRef(0);
-    const buttons = [4, 6, 8, 9, 12, 16];
+    const buttons = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
     const ids = [...Array(16).keys()];
     const rand = useRef(0);
     const stime = useRef(Date.now());
@@ -47,7 +47,7 @@ function ColorGame() {
     }
 
     function startRound(): void {
-        rand.current = Math.floor(Math.random() * (buttons[Math.min(round.current, 5)]));
+        rand.current = Math.floor(Math.random() * (buttons[Math.min(round.current, 12)]));
         let color = 12 * Math.floor(Math.random() * 31);
         let maxRange = Math.max(200 - round.current * 10, 10);
         let minRange = Math.max(75 - round.current * 5, 5);
@@ -63,7 +63,7 @@ function ColorGame() {
             else
                 color2 = color + diff;
         }
-        for (let i = 0; i < buttons[Math.min(round.current, 5)]; i++) {
+        for (let i = 0; i < buttons[Math.min(round.current, 12)]; i++) {
             if (i != rand.current) {
                 document.getElementById(`button-${i}`)?.style.setProperty("background-color", `hsl(${color}, 100%, 50%)`)
             }
