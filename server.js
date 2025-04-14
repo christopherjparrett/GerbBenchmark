@@ -274,7 +274,7 @@ app.post('/api/changeScore', async (req, res, next) => {
                 break;
             case 2:
                 oldScore = user[0].ReactionScore;
-                if (oldScore < score) {
+                if (oldScore < score && oldScore != -1) {
                     doBool = false;
                     error = 'old score was better';
                 }
