@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../Styles/Profile.css';
 import logo from '../assets/logo.png';
 import userPic from '../assets/user.png';
+import { useNavigate } from 'react-router-dom';
 
 function Profile() {
   const [menuOpen, setMenuOpen] = useState(false);
