@@ -138,7 +138,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
 app.post('/api/pullLeaderBoard', async (req, res, next) => {
 
     var error = '';
-    const {gameId: game };
+    const {gameId: game } = req.body;
 
     const user = await db.collection('Users').find().toArray();
 
@@ -158,7 +158,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
         gameLeaders: top10,
         error: error
     }
-
+    res.status(200).json(ret);
 });
 
 app.post('/api/changeScore', async (req, res, next) =>{
