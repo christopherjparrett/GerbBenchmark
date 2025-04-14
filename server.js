@@ -162,8 +162,10 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
         }
     }
 
-    if (doBool)
+    if (doBool) {
         top10 = user.slice(0, 10);
+        error = 'Top 10 Sorted and Given';
+    }
 
     var ret = {
         gameLeaders: top10,
