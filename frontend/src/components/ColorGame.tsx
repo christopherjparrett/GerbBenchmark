@@ -40,7 +40,7 @@ function ColorGame() {
 
     function startGame(e: any): void {
         e.preventDefault();
-        document.getElementById("startButton")?.style.setProperty("visibility", "hidden");
+        document.getElementById("startButton")?.style.setProperty("display", "none");
         document.getElementById("scoreDisplay")?.style.setProperty("visibility", "visible");
         startRound();
     }

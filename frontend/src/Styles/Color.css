@@ -15,6 +15,6 @@
   #gameDisplay button{
       margin: 20px;
       flex-basis: 20%;
-      height: 10em;
+      height: 5em;
       display: none;
   }
