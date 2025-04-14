@@ -128,3 +128,11 @@ nav ul li a{
 .sub-menu-link:hover p{
     font-weight: 600;
 }
+#profileDiv {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* This ensures the profile stays on top of other content */
+    background-color: #2D033B; /* Or whatever background color you prefer */
+  }
