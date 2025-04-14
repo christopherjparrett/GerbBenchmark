@@ -103,6 +103,7 @@ nav ul li a{
     color: #525252;
     margin: 12px 0;
     border-radius: 5px;
+    padding: 10px;
 }
 
 .sub-menu-link p{
