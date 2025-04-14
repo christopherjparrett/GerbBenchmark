@@ -56,6 +56,7 @@ function TypingGame() {
                 pause();
                 let WPM = (length/5/(Date.now()-stime + 250 * mistakes)*60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
+                //Do API call here
             }
 
         }

@@ -135,11 +135,11 @@ app.post('/api/deleteUser', async (req, res, next) => {
     res.status(200).json(ret);
 });
 
-app.post('/api/colorScore', async (req, res, next) =>{
+app.post('/api/changeScore', async (req, res, next) =>{
 
     var error = '';
     var playerScore;
-    const { _id: ID, ColorScore: score } = req.body;
+    const { _id: ID, ColorScore: score, gameId: game } = req.body;
 
     var objId;
     var doBool = true;
@@ -169,8 +169,22 @@ app.post('/api/colorScore', async (req, res, next) =>{
     }
 
     if (doBool) {
-        await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: playerScore } });
-        error = 'Successfully updated the score';
+        switch (game) {
+            case 1:
+                await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: playerScore } });
+                break;
+            case 2:
+                await db.collection('Users').updateOne({ _id: objId }, { $set: { ReactionScore: playerScore } });
+                break;
+            case 3:
+                await db.collection('Users').updateOne({ _id: objId }, { $set: { TypingScore: playerScore } });
+                break;
+            default:
+                error = 'Could not Find Game';
+                doBool = false;
+        }
+        if(doBool)
+            error = 'Successfully updated the score';
     }
 
     var ret = {
