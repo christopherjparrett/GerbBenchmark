@@ -96,12 +96,8 @@ nav ul li a{
     margin: 15px 0 10px;
 }
 
-.sub-menu-link{
-    display: flex;
-    align-item: center;
-    text-decoration: none;
-    color: #525252;
-    margin: 12px 0;
+.sub-menu:hover{
+    background-color: #cfcfcf;
 }
 
 .sub-menu-link p{
@@ -127,7 +123,6 @@ nav ul li a{
 
 .sub-menu-link:hover p{
     font-weight: 600;
-    background-color: #cfcfcf;
 }
 #profileDiv {
     position: fixed;
