@@ -3,7 +3,8 @@
 }
 #gameDisplay{
     display: flex;
-    background-color: #322F42;
+    background-color: #95ff00;
+    z-index: 1;
 }
 #scoreDisplay{
     visibility: hidden;
