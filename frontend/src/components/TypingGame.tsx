@@ -62,22 +62,7 @@ function TypingGame() {
                 pause();
                 let WPM = (length/5/(Date.now()-stime + 250 * mistakes)*60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
-                //Do API call here
-                var obj = { _id: userId, GameScore: WPM, gameId: 3};
-                var js = JSON.stringify(obj);
-
-                try {
-                    const response = await fetch('https://card.christopherjparrett.xyz/api/changeScore',
-                        { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } });
-
-                    var res = JSON.parse(await response.text());
-
-                    alert(res.error);
-                }
-                catch(error: any) {
-                    alert(error);
-                }
-
+                updateScore(parseFloat(WPM));
             }
 
         }
@@ -86,6 +71,25 @@ function TypingGame() {
             setCounter(++mistakes);
         }
     }
+
+    async function updateScore(score: number) {
+        //Do API call here
+        var obj = { _id: userId, GameScore: score, gameId: 3 };
+        var js = JSON.stringify(obj);
+
+        try {
+            const response = await fetch('https://card.christopherjparrett.xyz/api/changeScore',
+                { method: 'POST', body: js, headers: { 'Content-Type': 'application/json' } });
+
+            var res = JSON.parse(await response.text());
+
+            alert(res.error);
+        }
+        catch (error: any) {
+            alert(error);
+        }
+    }
+
     return (
 
         <div>

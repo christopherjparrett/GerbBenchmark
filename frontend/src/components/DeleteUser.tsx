@@ -1,11 +1,13 @@
 ﻿function DeleteUser() {
     const [message, setMessage] = React.useState('');
     var _ud = localStorage.getItem('user_data');
+    if (_ud == null) _ud = "";
+    var ud = JSON.parse(_ud);
 
-    async function doDeleteUser(event: any): void {
+    async function doDeleteUser(event: any): Promise<void> {
         event.preventDefault();
 
-        var obj = { _id: _ud.id };
+        var obj = { _id: ud.id };
         var js = JSON.stringify(obj);
 
         try {
@@ -33,4 +35,4 @@
     //Add a return div like in the other .tsx components to act as the button to call this API function when pressed
 
 }
-export default deleteUser;
+export default DeleteUser;
