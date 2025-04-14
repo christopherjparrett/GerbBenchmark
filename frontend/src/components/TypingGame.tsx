@@ -63,7 +63,7 @@ function TypingGame() {
                 let WPM = (length/5/(Date.now()-stime + 250 * mistakes)*60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
                 //Do API call here
-                var obj = { _id: userId, GameScore: WPM, 3};
+                var obj = { _id: userId, GameScore: WPM, gameId: 3};
                 var js = JSON.stringify(obj);
 
                 try {
