@@ -34,7 +34,7 @@
     //TO DO ==========
     //Add a return div like in the other .tsx components to act as the button to call this API function when pressed
     return (
-        <a onClick={doDeleteUser} className="sub-menu-link"}>
+        <a onClick={doDeleteUser} className="sub-menu-link">
             <img src={require('../assets/remove-user.png')} alt="Delete User" />
             <p>Delete User</p>
             <span>  </span>
