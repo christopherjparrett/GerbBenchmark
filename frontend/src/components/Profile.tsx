@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import '../Styles/Profile.css';
 import logo from '../assets/logo.png';
 import userPic from '../assets/user.png';
+import userDelete from '../assets/remove-user.png';
+import logout from '../assets/logout.png';
 import { useNavigate } from 'react-router-dom';
 
 function Profile() {
@@ -44,13 +46,13 @@ function Profile() {
             <hr />
 
             <a href="#" className="sub-menu-link">
-              <img src={logo} alt="logo" />
+              <img src={logout} alt="logout" />
               <p>Log Out</p>
               <span>  </span>
             </a>
 
             <a href="#" className="sub-menu-link">
-              <img src={logo} alt="logo" />
+              <img src={userDelete} alt="Delete User" />
               <p>Delete User</p>
               <span>  </span>
             </a>
