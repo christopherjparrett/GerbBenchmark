@@ -9,12 +9,9 @@
 #typing #scoreDisplay{
     visibility: hidden;
 }
-#typing #output, #typing #message{
-    padding: 5px;
 
 #typing #output, #typing #message {
     padding: 20px;
-    color: #FAFF81;
     text-align: left;
     flex-basis: 50%;
     font-size: 24px;
