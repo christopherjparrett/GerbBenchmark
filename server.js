@@ -167,11 +167,33 @@ app.post('/api/changeScore', async (req, res, next) =>{
     }
 
     const user = await db.collection('Users').find({ _id: objId }).toArray();
+    var oldScore;
+   
 
     if (user.length <= 0) {
         doBool = false;
         error = 'Could not find the user';
     }
+    //Check the score and if it should update
+    if (user.length > 0) {
+        switch (intGame) {
+            case 1:
+                oldScore = user[0].ColorScore;
+                break;
+            case 2:
+                oldScore = user[0].ReactionScore;
+                break;
+            case 3:
+                oldScore = user[0].TypingScore;
+                if (oldScore > newScore) {
+                    doBool = false;
+                    error = 'old score was better';
+                }
+                break;
+    }
+    }
+   
+
     //ID: 1 - colorScore, 2 - reactionScore, 3 - TypingScore
     if (doBool) {
         switch (intGame) {
