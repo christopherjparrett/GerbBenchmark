@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 
-var _ud = localStorage.getItem('user_data');
-if (_ud == null) _ud = '';
-var ud = JSON.parse(_ud);
-var userId = ud.id;
-
 // Fetch logged in user
+let userId = -1;
+try {
+  const ud = JSON.parse(localStorage.getItem('user_data') || '{}');
+  userId = ud.id ?? -1;
+} catch {}
+
 async function updateScore(score: number)
 {
   const obj = { _id: userId, GameScore: score, gameId: 1 };
@@ -28,22 +29,31 @@ async function updateScore(score: number)
   }
 }
 
+const getFeedback = (rt: number): string => {
+  if (rt < 250) return 'Good job! That was really quick!';
+  if (rt < 450) return 'That was pretty good! It could be a little faster.';
+  return 'Oof, that was pretty slow. You can do better!';
+}
+
 // Main
 const ReactionSpeedGame: React.FC = () =>
 {
   const [gameState, setGameState] = useState<'waiting'|'ready'|'click'|'done'>('waiting');
-  const [message, setMessage] = useState('Click START to begin');
+  const [message, setMessage] = useState(
+    'Click the START button to begin.\nWhen the red box turns green, click as fast as you can.'
+  );
   const [startMs, setStartMs] = useState<number>(0);
-  const [reaction, setReaction] = useState<number>(0);
+  const [reaction, setReaction] = useState<number | null>(null);
 
-  function startGame()
+  // Handlers
+  const startGame = () =>
   {
     setGameState('ready');
     setMessage('Wait for green...');
-    setReaction(0);
+    setReaction(null);
 
     // random delay
-    const delay = Math.floor(Math.random()*3000) + 3000;
+    const delay = Math.floor(Math.random() * 3000) + 3000;
     setTimeout(() =>
     {
       setGameState('click');
@@ -52,7 +62,7 @@ const ReactionSpeedGame: React.FC = () =>
     }, delay);
   }
 
-  async function handleClick()
+  const handleClick = async () =>
   {
     if (gameState === 'ready')
     {
@@ -66,40 +76,52 @@ const ReactionSpeedGame: React.FC = () =>
       const rt = Date.now() - startMs;
       setReaction(rt);
       setGameState('done');
-      setMessage(`Your reaction time: ${rt} ms`);
-
+      setMessage(getFeedback(rt));
       await updateScore(rt);
-      window.location.href = '/Home';
     }
   }
 
-  const boxStyle: React.CSSProperties =
-  {
-    width:'300px',
-    height:'300px',
-    margin:'auto',
+  // Visuals
+  const wrapper: React.CSSProperties = {
+    display:'flex', flexDirection:'column',
+    alignItems:'center', textAlign:'center', gap:'20px'
+  };
+
+  const box: React.CSSProperties = {
+    width:'300px', height:'300px',
     border:'2px solid white',
-    display:'flex',
-    alignItems:'center',
-    justifyContent:'center',
-    cursor:'pointer',
+    display:'flex', alignItems:'center', justifyContent:'center',
+    textAlign:'center', whiteSpace:'pre-line',
+    cursor: gameState==='click' || gameState==='ready' ? 'pointer' : 'default',
     backgroundColor:
-      gameState === 'click' ? 'green' :
-      gameState === 'ready' ? 'red'   : '#222'
+      gameState==='click' ? 'green' :
+      gameState==='ready' ? 'red' : '#222'
   };
 
   return (
-    <div>
-      { (gameState === 'waiting' || gameState === 'done') &&
-        <button id="startButton" onClick={startGame}>START</button> }
+    <div style={wrapper}>
+      {}
+      {reaction !== null && (
+        <h2 style={{color:'white'}}>Reaction: {reaction} ms</h2>
+      )}
 
-      <div style={{ height:'20px' }} />
-
-      <div style={boxStyle} onClick={handleClick}>
-        <span style={{ color:'white', textAlign:'center' }}>{message}</span>
+      {}
+      <div style={box} onClick={handleClick}>
+        {gameState==='waiting' || gameState==='done' ? (
+          <div>
+            <p>{message}</p>
+            <button
+              id="startButton"
+              onClick={startGame}
+              style={{marginTop:'10px'}}
+            >
+              START
+            </button>
+          </div>
+        ) : (
+          <span>{message}</span>
+        )}
       </div>
-
-      { reaction > 0 && <h2 style={{ color:'white' }}>Reaction: {reaction} ms</h2> }
     </div>
   );
 };
