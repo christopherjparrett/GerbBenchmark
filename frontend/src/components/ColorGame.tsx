@@ -42,6 +42,7 @@ function ColorGame() {
         e.preventDefault();
         document.getElementById("startButton")?.style.setProperty("display", "none");
         document.getElementById("scoreDisplay")?.style.setProperty("visibility", "visible");
+        document.getElementById("timer")?.style.setProperty("visibility", "visible");
         startRound();
     }
 

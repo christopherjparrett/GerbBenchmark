@@ -3,7 +3,6 @@
 }
 #typing #gameDisplay{
     display: flex;
-    background-color: #95ff00;
     z-index: 1;
 }
 #typing #scoreDisplay{
