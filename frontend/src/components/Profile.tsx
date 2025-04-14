@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import '../Styles/Profile.css';
+import logo from '../assets/logo.png';
+import userPic from '../assets/user.png';
 
 function Profile() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -11,7 +13,7 @@ function Profile() {
   return (
     <div id="profileDiv">
       <nav>
-        <img src="../assets/logo.png" className="logo" alt="logo" />
+        <img src={logo} className="logo" alt="logo" />
 
         <ul>
           <li><a href="#">Home</a></li>
@@ -21,7 +23,7 @@ function Profile() {
         </ul>
 
         <img
-          src="../assets/user.png"
+          src={userPic}
           className="user-pic"
           onClick={toggleMenu}
           alt="user"
@@ -30,19 +32,19 @@ function Profile() {
         <div className={`sub-menu-wrap ${menuOpen ? 'open-menu' : ''}`} id="subMenu">
           <div className="sub-menu">
             <div className="user-info">
-              <img src="../assets/user.png" alt="user" />
+              <img src={userPic} alt="user" />
               <h3>Matthew Gerber</h3>
             </div>
             <hr />
 
             <a href="#" className="sub-menu-link">
-              <img src="../assets/logo.png" alt="logo" />
+              <img src={logo} alt="logo" />
               <p>Log Out</p>
               <span> a </span>
             </a>
 
             <a href="#" className="sub-menu-link">
-              <img src="../assets/logo.png" alt="logo" />
+              <img src={logo} alt="logo" />
               <p>Delete User</p>
               <span> a </span>
             </a>
