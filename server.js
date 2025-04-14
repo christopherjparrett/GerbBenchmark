@@ -143,7 +143,7 @@ app.post('/api/changeScore', async (req, res, next) =>{
 
     var objId;
     var doBool = true;
-
+    var intGame = parseInt(game);
     if (ID != null)
         objId = new ObjectId(ID);
 
@@ -152,6 +152,11 @@ app.post('/api/changeScore', async (req, res, next) =>{
     if (isNaN(playerScore)) {
         doBool = false;
         error = 'Score is not a number';
+    }
+
+    if (isNaN(intGame)) {
+        doBool = false;
+        error = 'Game is not a number id';
     }
 
     const db = client.db();
@@ -167,9 +172,9 @@ app.post('/api/changeScore', async (req, res, next) =>{
         doBool = false;
         error = 'Could not find the user';
     }
-
+    //ID: 1 - colorScore, 2 - reactionScore, 3 - TypingScore
     if (doBool) {
-        switch (game) {
+        switch (intGame) {
             case 1:
                 await db.collection('Users').updateOne({ _id: objId }, { $set: { ColorScore: playerScore } });
                 break;
