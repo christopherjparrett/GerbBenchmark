@@ -68,7 +68,6 @@ function TypingGame() {
     return (
 
         <div>
-            <div>{'\u00A0'.repeat(100)}</div>
             <button id="startButton" onClick={startGame} z-index="1">Start</button>
             <div id="scoreDisplay">
                 <div style={{ fontSize: '100px' }}>
