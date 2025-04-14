@@ -3,12 +3,16 @@
 }
 #gameDisplay{
     display: flex;
+    background-color: #322F42;
 }
 #scoreDisplay{
     visibility: hidden;
 }
 #output, #message{
     padding: 5px;
+    color: #FAFF81;
     text-align: left;
     flex-basis: 50%;
+    font-size: 20px;
 }
+
