@@ -267,9 +267,17 @@ app.post('/api/changeScore', async (req, res, next) => {
         switch (intGame) {
             case 1:
                 oldScore = user[0].ColorScore;
+                if (oldScore > score) {
+                    doBool = false;
+                    error = 'old score was better';
+                }
                 break;
             case 2:
                 oldScore = user[0].ReactionScore;
+                if (oldScore < score) {
+                    doBool = false;
+                    error = 'old score was better';
+                }
                 break;
             case 3:
                 oldScore = user[0].TypingScore;
