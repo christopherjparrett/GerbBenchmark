@@ -56,7 +56,6 @@ function TypingGame() {
             length.current = msg.current.length;
         }
         document.getElementById("output")?.style.setProperty("border", "1px solid white");
-        document.removeEventListener("keydown", checkChar)
         document.addEventListener("keydown", checkChar)
     }
 
@@ -135,6 +134,8 @@ function TypingGame() {
               </div>
               <div id="gameDisplay">
                 <div id="message">{message}</div>
+                <div className="output2"><mark>{output}</mark></div>
+                <div className="output2"></div>
                 <div id="output">{output}</div>
               </div>
             </>
