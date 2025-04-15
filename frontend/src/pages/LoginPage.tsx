@@ -6,7 +6,7 @@ const LoginPage: React.FC = () => {
 
 
   return (
-    <div>
+    <div className='stretch'>
       <PageTitle />
       <Login />
     </div>
