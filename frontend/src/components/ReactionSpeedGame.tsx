@@ -110,7 +110,7 @@ const ReactionSpeedGame: React.FC = () =>
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
           <h2 style={{color:'white'}}>Reaction: {reaction} ms</h2>
           {showLeaderboard && (
-            <Leaderboard gameId={1} gameLabel="ReactionScore" show={true} />
+            <Leaderboard gameId={2} gameLabel="ReactionScore" show={true} />
           )}
           </div>
       )}

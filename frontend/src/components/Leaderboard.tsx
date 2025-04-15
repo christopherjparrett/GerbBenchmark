@@ -16,7 +16,7 @@ const Leaderboard: React.FC<LeaderboardProps> = ({ gameId, gameLabel, show }) =>
 
   useEffect(() => {
     if (!show) return;
-
+      alert("Leaderboard - Game ID is: "+gameId);
     const fetchLeaderboard = async () => {
       const res = await fetch('https://card.christopherjparrett.xyz/api/pullLeaderBoard', {
         method: 'POST',

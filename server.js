@@ -141,7 +141,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     const db = client.db();
     var doBool = true;
     var top10;
-
+    var filtered;
     const { gameId: game } = req.body;
 
     if (!game) {
@@ -149,21 +149,30 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
         doBool = false;
     }
 
+    if (game > 3 || game < 1) {
+        error = 'game is not an accepted digit';
+    }
+
     const user = await db.collection('Users').find({}, { projection: { Password: 0, Login: 0 } }).toArray();
     if (doBool) {
         switch (game) {
             case 1:
+                filtered = user.filter(user => user.ColorScore > -1);
+                filtered.sort((a, b) => b.ColorScore - a.ColorScore);
                 break;
             case 2:
+                filtered = user.filter(user => user.ReactionScore > -1);
+                filtered.sort((a, b) => a.ReactionScore - b.ReactionScore);
                 break;
             case 3:
-                user.sort((a, b) => b.TypingScore - a.TypingScore);
+                filtered = user.filter(user => user.TypingScore > -1);
+                filtered.sort((a, b) => b.TypingScore - a.TypingScore);
                 break;
         }
     }
 
     if (doBool) {
-        top10 = user.slice(0, 10);
+        top10 = filtered.slice(0, 10);
         error = 'Top 10 Sorted and Given';
     }
 
