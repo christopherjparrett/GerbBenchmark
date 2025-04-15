@@ -157,15 +157,15 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     if (doBool) {
         switch (game) {
             case 1:
-                user.filter(element => element.ColorScore != -1);
+                user.filter(user => user.ColorScore > -1);
                 user.sort((a, b) => b.ColorScore - a.ColorScore);
                 break;
             case 2:
-                user.filter(element => element.ReactionScore != -1);
+                user.filter(user => user.ReactionScore > -1);
                 user.sort((a, b) => a.ReactionScore - b.ReactionScore);
                 break;
             case 3:
-                user.filter(element => element.TypingScore != -1);
+                user.filter(user => user.TypingScore > -1);
                 user.sort((a, b) => b.TypingScore - a.TypingScore);
                 break;
         }
