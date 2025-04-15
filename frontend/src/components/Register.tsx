@@ -60,7 +60,7 @@ function Register() {
             <section>
                 <div className="signin">
                     <div className="content">
-                        <h2>Sign In</h2>
+                        <h2>Create Account</h2>
                         <div className="form">
                             <div className="inputBox">
                                 <input type="text" placeholder="Name" onChange={handleSetName} required />

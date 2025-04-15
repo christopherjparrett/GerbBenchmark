@@ -12,7 +12,6 @@ const SignUp: React.FC = () => {
     };
   return (
     <div>
-      <h1 id="signupBanner">Create Account</h1>
         <Register />
     </div>
   );
