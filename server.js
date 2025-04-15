@@ -156,13 +156,13 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     const user = await db.collection('Users').find({}, { projection: { Password: 0, Login: 0 } }).toArray();
     if (doBool) {
         switch (game) {
-            case 1:
+            case 3:
                 user.sort((a, b) => b.ColorScore - a.ColorScore);
                 break;
             case 2:
                 user.sort((a, b) => a.ReactionScore - b.ReactionScore);
                 break;
-            case 3:
+            case 1:
                 user.sort((a, b) => b.TypingScore - a.TypingScore);
                 break;
         }
