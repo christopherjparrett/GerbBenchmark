@@ -134,9 +134,11 @@ function TypingGame() {
               </div>
               <div id="gameDisplay">
                 <div id="message">{message}</div>
+                <div id="output">{output}</div>
+              </div>
+              <div id="backDispaly">
                 <div className="output2"><mark>{output}</mark></div>
                 <div className="output2"></div>
-                <div id="output">{output}</div>
               </div>
             </>
           )}

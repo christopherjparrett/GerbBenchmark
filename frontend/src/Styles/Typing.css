@@ -23,9 +23,13 @@
     position: relative;
     z-index: 2;
 }
-
+#backDisplay{
+    display: flex;
+    z-index: 0;
+    width: 95%;
+    margin-left: 2.5%;
+}
 .output2 {
-    z-index: 1;
     padding: 20px;
     text-align: left;
     flex-basis: 50%;
