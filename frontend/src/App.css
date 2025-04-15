@@ -43,9 +43,8 @@
   color: #888;
 }
 .stretch {
-  min-height: 100vh !important;
-  width: 100% !important;
-  display: flex !important;
+  min-height: 100vh;
+  width: 100%;
   background-color: #322F42 !important;
   color: #FAFF81 !important;
 }
