@@ -66,6 +66,7 @@ function TypingGame() {
         }
         else {
             index.current++;
+            setMessage(msg.current.substring(index.current));
             setOutput(msg.current.substring(0, index.current));
             if (index.current == length.current) {
                 pause();
@@ -133,12 +134,8 @@ function TypingGame() {
                 </div>
               </div>
               <div id="gameDisplay">
-                <div id="message">{message}</div>
+                <div id="message"><mark>{output}</mark>{message}</div>
                 <div id="output">{output}</div>
-              </div>
-              <div id="backDispaly">
-                <div className="output2"><mark>{output}</mark></div>
-                <div className="output2"></div>
               </div>
             </>
           )}
