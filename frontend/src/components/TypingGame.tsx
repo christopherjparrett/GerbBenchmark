@@ -50,14 +50,13 @@ function TypingGame() {
             length.current = msg.current.length;
         }
         document.getElementById("output")?.style.setProperty("border", "1px solid white");
-        window.addEventListener("keydown", (e) => { checkChar(e) })
+        document.getElementById("typing")?.addEventListener("keydown", (e) => { checkChar(e) })
     }
 
     function checkChar(e: any): void {
         if (e.key != msg.current.charAt(index.current)) {
             document.getElementById('gameDisplay')?.animate({ backgroundColor: "red" }, 200);
             setCounter(++mistakes.current);
-            console.log(e.key);
         }
         else {
             index.current++;
