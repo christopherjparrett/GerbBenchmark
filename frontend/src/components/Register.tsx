@@ -77,7 +77,7 @@ function Register() {
                                 </a>
                             </div>
                             <div className="inputBox">
-                                <input type="submit" value="Login" onClick={doRegister} />
+                                <input type="submit" value="Register for Testing" onClick={doRegister} />
                             </div>
                             <div id="loginResult">{message}</div>
                         </div>
