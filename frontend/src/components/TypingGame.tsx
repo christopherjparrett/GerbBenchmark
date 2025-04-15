@@ -57,6 +57,7 @@ function TypingGame() {
         if (e.key != msg.current.charAt(index.current)) {
             document.getElementById('gameDisplay')?.animate({ backgroundColor: "red" }, 200);
             setCounter(++mistakes.current);
+            console.log(e.key);
         }
         else {
             index.current++;
