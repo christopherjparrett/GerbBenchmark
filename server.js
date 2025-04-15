@@ -103,7 +103,7 @@ app.post('/api/deleteUser', async (req, res, next) => {
 
     const { _id: ID } = req.body;
 
-    if (ID != null)
+    if (ID != null && ID != "")
         objId = new ObjectId(ID);
 
     if (!objId) {
