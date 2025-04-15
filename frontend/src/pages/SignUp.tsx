@@ -11,7 +11,7 @@ const SignUp: React.FC = () => {
         navigate(`/${inputs}`);
     };
   return (
-    <div>
+    <div className='stretch'>
         <Register />
     </div>
   );

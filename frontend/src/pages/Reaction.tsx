@@ -5,7 +5,7 @@ import ReactionSpeedGame from '../components/ReactionSpeedGame';
 
 const Reaction: React.FC = () => {
   return (
-    <div>
+    <div className='stretch'>
       <CookieKing />
       <Profile />
 

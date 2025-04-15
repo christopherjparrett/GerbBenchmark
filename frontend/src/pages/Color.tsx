@@ -4,7 +4,7 @@ import CookieKing from '../components/CookieKing.tsx';
 import ColorGame from '../components/ColorGame.tsx';
 const Color: React.FC = () => {
   return (
-    <div>
+    <div className='stretch'>
       <CookieKing />
       <Profile />
       <ColorGame />
