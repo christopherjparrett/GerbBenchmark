@@ -52,7 +52,6 @@ function TypingGame() {
 
     function checkChar(e: any): void {
         if (e.key == msg.charAt(index)) {
-            console.log(seconds);
             index++;
             setOutput(msg.substring(0, index));
             if (index == length) {
