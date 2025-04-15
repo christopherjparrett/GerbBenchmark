@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-
+import '../Styles/Leaderboard.css';
 interface Leader {
   Name: string;
   [key: string]: any; 
