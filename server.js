@@ -141,7 +141,7 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
     const db = client.db();
     var doBool = true;
     var top10;
-    const filterd
+    const filtered
     const { gameId: game } = req.body;
 
     if (!game) {
