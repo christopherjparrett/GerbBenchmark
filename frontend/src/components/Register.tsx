@@ -1,4 +1,5 @@
 ﻿import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 function Register() {
     const [message, setMessage] = React.useState('');
     const [userName, setName] = React.useState('');
@@ -16,6 +17,12 @@ function Register() {
     function handleSetPassword(e: any): void {
         setPassword(e.target.value);
     }
+
+    const navigate = useNavigate();
+
+    const goTo = (inputs: string) => {
+        navigate(`/${inputs}`);
+    };
 
     async function doRegister(event: any): Promise<void> {
         event.preventDefault();
@@ -50,14 +57,34 @@ function Register() {
 
     return (
         <div id="loginDiv">
-            <span id="inner-title">Enter User Information</span><br />
-            <input type="text" id="userName" placeholder="Name" onChange={handleSetName} /><br />
-            <input type="text" id="loginName" placeholder="Username" onChange={handleSetLoginName} /><br />
-            <input type="password" id="loginPassword" placeholder="Password" onChange={handleSetPassword} /><br />
-            <input type="submit" id="loginButton" className="buttons" value="Sign Up"
-                onClick={doRegister} />
-            <span id="signupResult">{message}</span>
-        </div>
+            <section>
+                <div className="signin">
+                    <div className="content">
+                        <h2>Sign In</h2>
+                        <div className="form">
+                            <div className="inputBox">
+                                <input type="text" placeholder="Name" onChange={handleSetName} required />
+                            </div>
+                            <div className="inputBox">
+                                <input type="text" placeholder="Username" onChange={handleSetLoginName} required />
+                            </div>
+                            <div className="inputBox">
+                                <input type="password" placeholder="Password" onChange={handleSetPassword} required />
+                            </div>
+                            <div className="links">
+                                <a className="LoginButton" onClick={() => goTo('#')}>
+                                    Log In
+                                </a>
+                            </div>
+                            <div className="inputBox">
+                                <input type="submit" value="Login" onClick={doRegister} />
+                            </div>
+                            <div id="loginResult">{message}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div >
     );
 
 };

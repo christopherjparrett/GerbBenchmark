@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import PageTitle from './PageTitle.tsx';
+
 function Login() {
     const [message, setMessage] = React.useState('');
     const [loginName, setLoginName] = React.useState('');
@@ -11,6 +14,12 @@ function Login() {
     function handleSetPassword(e: any): void {
         setPassword(e.target.value);
     }
+
+    const navigate = useNavigate();
+
+    const goTo = (inputs: string) => {
+        navigate(`/${inputs}`);
+    };
 
 
     async function doLogin(event: any): Promise<void> {
@@ -37,7 +46,7 @@ function Login() {
             }
         }
         catch (error: any) {
-            alert(error.toString());
+            setMessage(error.toString());
             return;
         }
     };
@@ -46,16 +55,50 @@ function Login() {
 
     return (
         <div id="loginDiv">
-            <span id="inner-title">PLEASE LOG IN</span><br />
-            <input type="text" id="loginName" placeholder="Username" onChange={handleSetLoginName} /><br />
-            <input type="password" id="loginPassword" placeholder="Password" onChange={handleSetPassword} /><br />
-            <input type="submit" id="loginButton" className="buttons" value="Do It"
-                onClick={doLogin} />
-            <span id="loginResult">{message}</span>
-        </div>
+            <section> 
+                <div className="signin">
+
+                    <div className="content">
+
+                        <h2>Sign In</h2>
+
+                        <div className="form">
+
+                            <div className="inputBox">
+
+                                <input type="text" placeholder="Username" onChange={handleSetLoginName} required />
+
+                            </div>
+
+                            <div className="inputBox">
+
+                                <input type="password" placeholder="Password" onChange={handleSetPassword} required />
+
+                            </div>
+                            <div className="links">
+                                <a className="SignUpButton" onClick={() => goTo('SignUp')}>
+                                    Create Account
+                                </a>
+                            </div>
+
+
+
+                            <div className="inputBox">
+
+                                <input type="submit" value="Login" onClick={doLogin} />
+
+                            </div>
+
+                            <div id="loginResult">{message}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+            </section>
+        </div >
     );
-
-};
-
+}
 export default Login;
-
