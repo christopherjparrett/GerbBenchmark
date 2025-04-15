@@ -21,7 +21,8 @@ const Home: React.FC = () => {
         <Profile />
         <div className="Overlord">
             <div className='Banner'>
-                <h1>Welcome to the Home Page!</h1>
+                <h1>Gerber Benchmark</h1>
+                <h1>Game Selection</h1>
             </div>
             <div className='AllButtons'>
                     <button className = "HomeScreenButton" onClick={() => goTo('Color')}>
