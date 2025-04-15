@@ -51,7 +51,7 @@ function ColorGame() {
     function startRound(): void {
         rand.current = Math.floor(Math.random() * (buttons[Math.min(round.current, 12)]));
         let color = 12 * Math.floor(Math.random() * 31);
-        let maxRange = Math.max(200 - round.current * 10, 10);
+        let maxRange = Math.max(180 - round.current * 15, 10);
         let minRange = Math.max(75 - round.current * 5, 5);
         let diff = Math.floor(Math.random() * (maxRange - minRange)) + minRange;
         let color2 = 0;
