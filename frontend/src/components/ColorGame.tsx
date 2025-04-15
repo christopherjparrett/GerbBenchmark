@@ -85,7 +85,6 @@ function ColorGame() {
         pause();
         document.getElementById("gameDisplay")?.style.setProperty("visibility", "hidden")
         if (id == rand.current) {
-            console.log("here3");
             setRound(++round.current);
             playCorrect();
             score.current += (round.current * (stime.current + 5000 - Date.now()) / 50);

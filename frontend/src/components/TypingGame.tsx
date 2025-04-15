@@ -54,7 +54,11 @@ function TypingGame() {
     }
 
     function checkChar(e: any): void {
-        if (e.key == msg.current.charAt(index.current)) {
+        if (e.key != msg.current.charAt(index.current)) {
+            document.getElementById('gameDisplay')?.animate({ backgroundColor: "red" }, 200);
+            setCounter(++mistakes.current);
+        }
+        else {
             index.current++;
             setOutput(msg.current.substring(0, index.current));
             if (index == length) {
@@ -68,12 +72,8 @@ function TypingGame() {
                 setGameOver(true);
                 //window.location.href = '/Home';
             }
+        }
 
-        }
-        else {
-            document.getElementById('gameDisplay')?.animate({ backgroundColor: "red" }, 200);
-            setCounter(++mistakes.current);
-        }
     }
 
     async function updateScore(score: number) {
