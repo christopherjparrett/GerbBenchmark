@@ -49,7 +49,7 @@ function TypingGame() {
     }
 
     function generateMessage(): void {
-        let arr = generate(40);
+        let arr = generate(30);
         if (Array.isArray(arr)) {
             setMessage(arr.join(" ") + ".");
             msg.current = arr.join(" ") + ".";
