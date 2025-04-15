@@ -8,6 +8,9 @@
     flex-direction: column;
     align-items: center;
   }
+.leaderboard ol{
+  padding-bottom: 5px;
+}
 ol li{
   padding-left: 10px;
 }
