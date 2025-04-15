@@ -149,6 +149,10 @@ app.post('/api/pullLeaderBoard', async (req, res, next) => {
         doBool = false;
     }
 
+    if (game > 3 || game < 1) {
+        error = 'game is not an accepted digit';
+    }
+
     const user = await db.collection('Users').find({}, { projection: { Password: 0, Login: 0 } }).toArray();
     if (doBool) {
         switch (game) {
