@@ -193,7 +193,7 @@ app.post('/api/retrieveUserScore', async (req, res, next) => {
     var objId;
     var doBool = true;
 
-    if (!ID, !game) {
+    if (!ID || !game) {
         error = 'not enough information';
         doBool = false;
     }
