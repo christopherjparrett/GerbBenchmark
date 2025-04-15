@@ -20,6 +20,9 @@ function TypingGame() {
     const [output, setOutput] = useState('');
     const [counter, setCounter] = useState(0);
     const [gameOver, setGameOver] = useState(false);
+    const [finalWPM, setFinalWPM] = useState<number | null>(null);
+    const [finalMistakes, setFinalMistakes] = useState<number>(0);
+
     let index = 0;
     let length = 0;
     let mistakes = 0;
@@ -60,6 +63,9 @@ function TypingGame() {
                 let WPM = (length / 5 / (Date.now() - stime + 250 * mistakes) * 60000).toFixed(2);
                 alert("You won! WPM: " + WPM);
                 updateScore(parseFloat(WPM));
+                const final = parseFloat(WPM);
+                setFinalWPM(final);
+                setFinalMistakes(mistakes);
                 setGameOver(true);
                 //window.location.href = '/Home';
             }
@@ -90,26 +96,46 @@ function TypingGame() {
     }
 
     return (
-
-        <div id="typing">
-            {gameOver && (
-                <Leaderboard gameId={3} gameLabel="TypingScore" show={true} />
-            )}
-            <button id="startButton" onClick={startGame} z-index="1">Start</button>
-            <div id="scoreDisplay">
+        <div id="typing" style={{ textAlign: 'center', padding: '40px' }}>
+          {gameOver ? (
+            <>
+              <h2>🎉 You Finished!</h2>
+              <p style={{ fontSize: '24px' }}>WPM: <strong>{finalWPM}</strong></p>
+              <p style={{ fontSize: '24px' }}>Mistakes: <strong>{finalMistakes}</strong></p>
+              <Leaderboard gameId={3} gameLabel="TypingScore" show={true} />
+              <button
+                onClick={() => window.location.reload()}
+                style={{
+                  marginTop: '20px',
+                  padding: '10px 20px',
+                  fontSize: '18px',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Play Again
+              </button>
+            </>
+          ) : (
+            <>
+              <button id="startButton" onClick={startGame} style={{ zIndex: 1 }}>Start</button>
+              <div id="scoreDisplay">
                 <div style={{ fontSize: '100px' }}>
-                    <span>{formatTime(minutes)}</span>:<span>{formatTime(seconds)}</span>
+                  <span>{formatTime(minutes)}</span>:<span>{formatTime(seconds)}</span>
                 </div>
                 <div style={{ fontSize: '50px', paddingBottom: '20px' }}>
-                    Mistakes: {counter}
+                  Mistakes: {counter}
                 </div>
-            </div>
-            <div id="gameDisplay">
+              </div>
+              <div id="gameDisplay">
                 <div id="message">{message}</div>
                 <div id="output">{output}</div>
-            </div>
+              </div>
+            </>
+          )}
         </div>
-    )
+      )
+      
 }
 
 export default TypingGame

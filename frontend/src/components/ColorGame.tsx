@@ -3,6 +3,7 @@ import { useTimer } from 'react-timer-hook';
 import '../Styles/Color.css'
 import correct from '../assets/correct.mp3'
 import over from '../assets/game-over.mp3'
+import Leaderboard from './Leaderboard';
 
 function ColorGame() {
     var _ud = localStorage.getItem('user_data');
@@ -26,6 +27,7 @@ function ColorGame() {
     const stime = useRef(Date.now());
     const [dispScore, setScore] = useState(0);
     const [dispRound, setRound] = useState(0);
+    const [gameOver, setGameOver] = useState(false);
 
     const playCorrect = () => {
         new Audio(correct).play();
@@ -100,6 +102,7 @@ function ColorGame() {
         document.getElementById("gameDisplay")?.style.setProperty("display", "none");
         document.getElementById("score")?.style.setProperty("font-size", "100px")
         updateScore(Math.round(score.current))
+        setGameOver(true);
     }
 
     async function updateScore(score: number) {
@@ -134,6 +137,7 @@ function ColorGame() {
                     Round: {dispRound + 1}
                 </div>
             </div>
+            <Leaderboard gameId={1} gameLabel="ColorScore" show={true} />
             <div id="gameDisplay" >
                 {ids.map((id, index) => (
                     <button key={id} id={`button-${index}`} onClick={() => checkButton(index)}></button>
