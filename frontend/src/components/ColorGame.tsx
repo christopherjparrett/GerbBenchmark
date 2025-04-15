@@ -55,16 +55,10 @@ function ColorGame() {
         let minRange = Math.max(75 - round.current * 5, 5);
         let diff = Math.floor(Math.random() * (maxRange - minRange)) + minRange;
         let color2 = 0;
-        if (color - diff < 0)
-            color2 = Math.min(360, color + diff);
-        else if (color + diff > 360)
-            color2 = color - diff;
-        else {
-            if (Math.random() < 0.5)
-                color2 = color - diff;
-            else
-                color2 = color + diff;
-        }
+        if (Math.random() < 0.5)
+            color2 = (color - diff)%360;
+        else
+            color2 = (color + diff)%360;
         for (let i = 0; i < buttons[Math.min(round.current, 12)]; i++) {
             if (i != rand.current) {
                 document.getElementById(`button-${i}`)?.style.setProperty("background-color", `hsl(${color}, 100%, 50%)`)
@@ -87,7 +81,7 @@ function ColorGame() {
         if (id == rand.current) {
             setRound(++round.current);
             playCorrect();
-            score.current += (round.current * (stime.current + 5000 - Date.now()) / 50);
+            score.current += (Math.min(round.current,10) * (stime.current + 5000 - Date.now()) / 50);
             setScore(score.current);
             setTimeout(() => startRound(), 1000);
         }
