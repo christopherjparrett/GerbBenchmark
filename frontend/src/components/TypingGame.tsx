@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { generate } from "random-words";
 import '../Styles/Typing.css';
@@ -33,6 +33,11 @@ function TypingGame() {
         return String(time).padStart(2, '0')
     }
 
+    useEffect(() => {
+        return() => {
+            document.removeEventListener("keydown", checkChar);
+        }
+    }, []);
 
     function startGame(e: any): void {
         e.preventDefault();
