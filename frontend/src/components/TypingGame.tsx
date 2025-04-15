@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { useStopwatch } from 'react-timer-hook';
 import { generate } from "random-words";
 import '../Styles/Typing.css';
@@ -23,11 +23,11 @@ function TypingGame() {
     const [finalWPM, setFinalWPM] = useState<number | null>(null);
     const [finalMistakes, setFinalMistakes] = useState<number>(0);
 
-    let index = 0;
-    let length = 0;
-    let mistakes = 0;
-    let msg = '';
-    let stime = 0;
+    const index = useRef(0);
+    const length = useRef(0);
+    const mistakes = useRef(0);
+    const msg = useRef('');
+    const stime = useRef(0);
 
     const formatTime = (time: any) => {
         return String(time).padStart(2, '0')
@@ -39,32 +39,32 @@ function TypingGame() {
         document.getElementById("scoreDisplay")?.style.setProperty("visibility", "visible");
         generateMessage();
         start();
-        stime = Date.now();
+        stime.current = Date.now();
     }
 
     function generateMessage(): void {
         let arr = generate(40);
         if (Array.isArray(arr)) {
             setMessage(arr.join(" ") + ".");
-            msg = arr.join(" ") + ".";
-            length = msg.length;
+            msg.current = arr.join(" ") + ".";
+            length.current = msg.current.length;
         }
         document.getElementById("output")?.style.setProperty("border", "1px solid white");
         window.addEventListener("keydown", (e) => { checkChar(e) })
     }
 
     function checkChar(e: any): void {
-        if (e.key == msg.charAt(index)) {
-            index++;
-            setOutput(msg.substring(0, index));
+        if (e.key == msg.current.charAt(index.current)) {
+            index.current++;
+            setOutput(msg.current.substring(0, index.current));
             if (index == length) {
                 pause();
-                let WPM = (length / 5 / (Date.now() - stime + 250 * mistakes) * 60000).toFixed(2);
-                alert("You won! WPM: " + WPM);
+                let WPM = (length.current / 5 / (Date.now() - stime.current + 250 * mistakes.current) * 60000).toFixed(2);
+                console.log("You won! WPM: " + WPM);
                 updateScore(parseFloat(WPM));
                 const final = parseFloat(WPM);
                 setFinalWPM(final);
-                setFinalMistakes(mistakes);
+                setFinalMistakes(mistakes.current);
                 setGameOver(true);
                 //window.location.href = '/Home';
             }
@@ -72,7 +72,7 @@ function TypingGame() {
         }
         else {
             document.getElementById('gameDisplay')?.animate({ backgroundColor: "red" }, 200);
-            setCounter(++mistakes);
+            setCounter(++mistakes.current);
         }
     }
 
@@ -87,17 +87,17 @@ function TypingGame() {
 
             var res = JSON.parse(await response.text());
 
-            alert(res.error);
+            console.log(res.error);
         }
         catch (error: any) {
-            alert(error);
+            console.log(error);
         }
     }
 
     return (
         <div id="typing" style={{ textAlign: 'center', padding: '40px' }}>
           {gameOver ? (
-            <>
+            <div>
               <h2>🎉 You Finished!</h2>
               <p style={{ fontSize: '24px' }}>WPM: <strong>{finalWPM}</strong></p>
               <p style={{ fontSize: '24px' }}>Mistakes: <strong>{finalMistakes}</strong></p>
@@ -114,7 +114,7 @@ function TypingGame() {
               >
                 Play Again
               </button>
-            </>
+            </div>
           ) : (
             <>
               <button id="startButton" onClick={startGame} style={{ zIndex: 1 }}>Start</button>

@@ -116,10 +116,10 @@ function ColorGame() {
 
             var res = JSON.parse(await response.text());
 
-            alert(res.error);
+            console.log(res.error);
         }
         catch (error: any) {
-            alert(error);
+            console.log(error);
         }
     }
 
@@ -137,7 +137,7 @@ function ColorGame() {
                     Round: {dispRound + 1}
                 </div>
             </div>
-            <Leaderboard gameId={1} gameLabel="ColorScore" show={true} />
+            <Leaderboard gameId={1} gameLabel="ColorScore" show={gameOver} />
             <div id="gameDisplay" >
                 {ids.map((id, index) => (
                     <button key={id} id={`button-${index}`} onClick={() => checkButton(index)}></button>

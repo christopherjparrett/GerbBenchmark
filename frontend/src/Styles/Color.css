@@ -12,6 +12,7 @@
 #color #scoreDisplay{
       visibility: hidden;
       margin-top: 100px;
+      margin-bottom: 20px;
   }
 #color #gameDisplay button{
       margin: 20px;

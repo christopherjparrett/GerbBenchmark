@@ -22,11 +22,11 @@ async function updateScore(score: number)
 
     const res = JSON.parse(await response.text());
     if (res.error && res.error.length > 0)
-      alert(res.error);
+      console.log(res.error);
   }
   catch(err:any)
   {
-    alert(err.toString());
+    console.log(err.toString());
   }
 }
 
