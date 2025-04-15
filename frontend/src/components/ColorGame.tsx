@@ -21,7 +21,7 @@ function ColorGame() {
     } = useTimer({ expiryTimestamp: time, autoStart: false, interval: 20, onExpire: () => endGame()});
     const score = useRef(0);
     const round = useRef(0);
-    const buttons = [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
+    const buttons = [4, 4, 6, 6, 8, 8, 10, 10, 12, 12, 14, 14, 16];
     const ids = [...Array(16).keys()];
     const rand = useRef(0);
     const stime = useRef(Date.now());
