@@ -12,6 +12,7 @@ const SignUp: React.FC = () => {
     };
   return (
     <div className='stretch'>
+        <PageTitle />
         <Register />
     </div>
   );
