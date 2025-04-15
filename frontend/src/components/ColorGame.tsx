@@ -130,7 +130,19 @@ function ColorGame() {
                     Round: {dispRound + 1}
                 </div>
             </div>
-            <Leaderboard gameId={1} gameLabel="ColorScore" show={gameOver} />
+                <Leaderboard gameId={1} gameLabel="ColorScore" show={gameOver} />
+            {gameOver&&<button
+                onClick={() => window.location.reload()}
+                style={{
+                  marginTop: '20px',
+                  padding: '10px 20px',
+                  fontSize: '18px',
+                  borderRadius: '8px',
+                  cursor: 'pointer'
+                }}
+              >
+                Play Again
+              </button>}
             <div id="gameDisplay" >
                 {ids.map((id, index) => (
                     <button key={id} id={`button-${index}`} onClick={() => checkButton(index)}></button>
