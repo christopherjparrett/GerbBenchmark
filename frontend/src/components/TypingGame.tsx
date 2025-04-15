@@ -51,8 +51,8 @@ function TypingGame() {
             length.current = msg.current.length;
         }
         document.getElementById("output")?.style.setProperty("border", "1px solid white");
-        document.removeEventListener("keydown", checkChar)
-        document.addEventListener("keydown", (e) => { checkChar(e) })
+        window.removeEventListener("keydown", checkChar)
+        window.addEventListener("keydown", (e) => { checkChar(e) })
     }
 
     function checkChar(e: any): void {
