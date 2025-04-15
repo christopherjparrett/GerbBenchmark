@@ -96,8 +96,8 @@ function ColorGame() {
         }
     }
     function endGame(): void {
-        playOver();0
-        document.getElementById("timer")?.style.setProperty("display", "none");
+        playOver();
+        document.getElementById("timer")?.style.setProperty("visibility", "hidden");
         document.getElementById("gameDisplay")?.style.setProperty("display", "none");
         document.getElementById("score")?.style.setProperty("font-size", "100px")
         updateScore(Math.round(score.current))

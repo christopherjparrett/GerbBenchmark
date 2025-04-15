@@ -55,48 +55,29 @@ function Login() {
 
     return (
         <div id="loginDiv">
-            <section> 
+            <section>
                 <div className="signin">
-
                     <div className="content">
-
                         <h2>Sign In</h2>
-
                         <div className="form">
-
                             <div className="inputBox">
-
                                 <input type="text" placeholder="Username" onChange={handleSetLoginName} required />
-
                             </div>
-
                             <div className="inputBox">
-
                                 <input type="password" placeholder="Password" onChange={handleSetPassword} required />
-
                             </div>
                             <div className="links">
                                 <a className="SignUpButton" onClick={() => goTo('SignUp')}>
                                     Create Account
                                 </a>
                             </div>
-
-
-
                             <div className="inputBox">
-
                                 <input type="submit" value="Login" onClick={doLogin} />
-
                             </div>
-
                             <div id="loginResult">{message}</div>
                         </div>
                     </div>
-
                 </div>
-
-
-
             </section>
         </div >
     );
