@@ -61,7 +61,7 @@ function TypingGame() {
         else {
             index.current++;
             setOutput(msg.current.substring(0, index.current));
-            if (index == length) {
+            if (index.current == length.current) {
                 pause();
                 let WPM = (length.current / 5 / (Date.now() - stime.current + 250 * mistakes.current) * 60000).toFixed(2);
                 console.log("You won! WPM: " + WPM);
